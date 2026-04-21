@@ -1,4 +1,8 @@
-import { ImageField, NextImage as ContentSdkImage } from '@sitecore-content-sdk/nextjs';
+'use client';
+
+import { SitecoreOrNativeImage } from '@/helpers/sitecoreHydrationSafe';
+import { ImageField } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { useMemo, useState } from 'react';
 import { Product } from '@/types/products';
 
@@ -7,6 +11,7 @@ interface ProductGalleryProps {
 }
 
 export const ProductGallery = ({ product }: ProductGalleryProps) => {
+  const isEditing = useHydrationSafeEditing();
   const [mainImageIndex, setMainImageIndex] = useState(0);
 
   const images: ImageField[] = useMemo(
@@ -34,7 +39,11 @@ export const ProductGallery = ({ product }: ProductGalleryProps) => {
                 isActive ? 'cursor-not-allowed opacity-50' : 'hover:ring-accent hover:ring-2'
               }`}
             >
-              <ContentSdkImage field={img} className="h-full w-full object-cover" />
+              <SitecoreOrNativeImage
+                field={img}
+                isEditing={isEditing}
+                className="h-full w-full object-cover"
+              />
             </button>
           );
         })}
@@ -42,8 +51,9 @@ export const ProductGallery = ({ product }: ProductGalleryProps) => {
 
       <div className="grow">
         {images[mainImageIndex] ? (
-          <ContentSdkImage
+          <SitecoreOrNativeImage
             field={images[mainImageIndex]}
+            isEditing={isEditing}
             className="bg-background-muted aspect-square w-full rounded-md object-contain p-4"
           />
         ) : (

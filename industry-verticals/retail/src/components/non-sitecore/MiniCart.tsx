@@ -1,12 +1,11 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { useI18n } from 'next-localization';
 import { getCart, CartItem } from '@/lib/cart';
-import {
-  NextImage as ContentSdkImage,
-  Text as ContentSdkText,
-  Link,
-  LinkField,
-} from '@sitecore-content-sdk/nextjs';
+import { plainFromTextField, SitecoreOrNativeImage } from '@/helpers/sitecoreHydrationSafe';
+import { Text as ContentSdkText, Link, LinkField } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import QuantityControl from './QuantityControl';
 import { useLocale } from '@/hooks/useLocaleOptions';
 import { Heart, X } from 'lucide-react';
@@ -21,12 +20,15 @@ export const MiniCart = ({
   checkoutPage: LinkField;
 }) => {
   const [cart, setCart] = useState<CartItem[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const isEditing = useHydrationSafeEditing();
   const { t } = useI18n();
   const { currencySymbol } = useLocale();
   const { updatingItemId, handleRemoveFromCart, handleUpdateQuantity } = useCartAction();
 
   useEffect(() => {
     setCart(getCart());
+    setIsLoaded(true);
     const handler = () => setCart(getCart());
     window.addEventListener('storage', handler);
     return () => window.removeEventListener('storage', handler);
@@ -42,7 +44,7 @@ export const MiniCart = ({
     setCart(updatedCart);
   };
 
-  if (!cart.length) {
+  if (!isLoaded || !cart.length) {
     return (
       <div>
         <h5>{t('shopping_cart_label') || 'Shopping Cart'}</h5>
@@ -85,11 +87,19 @@ export const MiniCart = ({
                 </button>
               </div>
               <div className="bg-background-surface size-19 rounded-sm p-2">
-                <ContentSdkImage field={item.product.Image1} className="image-contain" />
+                <SitecoreOrNativeImage
+                  field={item.product.Image1}
+                  isEditing={isEditing}
+                  className="image-contain"
+                />
               </div>
               <div>
                 <h6 className="line-clamp-1 text-lg break-all">
-                  <ContentSdkText field={item.product.Title} />
+                  {isEditing ? (
+                    <ContentSdkText field={item.product.Title} />
+                  ) : (
+                    plainFromTextField(item.product.Title)
+                  )}
                 </h6>
                 <p>
                   <span>{item.size?.fields.ProductSize.value}</span>

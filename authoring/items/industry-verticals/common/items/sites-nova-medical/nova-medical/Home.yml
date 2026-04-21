@@ -109,6 +109,39 @@ Languages:
               <p:d />
             </r>
             <r
+              uid="{DE1E100D-B512-4CFD-AE11-7845CF84498B}">
+              <rls>
+                <ruleset
+                  s:pet="true">
+                  <rule
+                    uid="{70F7975F-4088-4448-8544-F03AFF8FB94D}"
+                    s:name="4d545d46e1f4461391e1c29bba3ddc33">
+                    <conditions>
+                      <condition
+                        uid="25B75D7CABF5440F8FE884AA28E5A21A"
+                        s:id="{8E7426A4-12ED-4C44-8625-E7191860E726}"
+                        s:VariantName="4d545d46e1f4461391e1c29bba3ddc33" />
+                    </conditions>
+                    <actions>
+                      <action
+                        uid="{00434791-2D11-4D89-9B0C-EDB6CB395628}"
+                        s:id="{525C7B5A-8FD2-4B99-89F6-4F3F6D23BB02}"
+                        s:Parameters="FieldNames=%7B4475AE6C-68CF-4E03-B39D-D80DBC77A4C4%7D&amp;RenderingIdentifier&amp;Styles=%7C%7BBC189FF0-FD22-457F-BB08-150B7D751F49%7D&amp;CSSStyles&amp;GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D" />
+                    </actions>
+                  </rule>
+                  <rule
+                    uid="{00000000-0000-0000-0000-000000000000}"
+                    s:name="Default">
+                    <conditions>
+                      <condition
+                        uid="EF91DAFE675D4B46815578F636013446"
+                        s:id="{4888ABBB-F17D-4485-B14B-842413F88732}" />
+                    </conditions>
+                  </rule>
+                </ruleset>
+              </rls>
+            </r>
+            <r
               uid="{CE910DEB-15CF-4681-BB79-BBDD8900D9D3}"
               s:par="GridParameters=%7B7465D855-992E-4DC2-9855-A03250DFA74B%7D&amp;FieldNames&amp;Styles=%7C%7B51EAE422-AB43-4D19-B305-AC294DE8849F%7D%7C%7BF8C308A7-E2B4-498E-AE58-B2DFCE7583BD%7D%7C%7B8D53421C-9150-49E3-B2E0-AC3C44EA54F5%7D%7C%7BBC189FF0-FD22-457F-BB08-150B7D751F49%7D&amp;RenderingIdentifier&amp;CSSStyles&amp;DynamicPlaceholderId=7" />
           </d>
@@ -132,11 +165,11 @@ Languages:
         sitecore\movin.tilakaratne@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "abc3c381-e091-4054-87be-44016333186b"
+      Value: "d99bc667-df2c-469e-b9bc-e36b53d27e25"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20260126T101546Z
+      Value: 20260305T221404Z

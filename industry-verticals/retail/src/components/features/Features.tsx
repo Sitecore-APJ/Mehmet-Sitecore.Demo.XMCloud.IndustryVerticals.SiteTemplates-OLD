@@ -1,12 +1,10 @@
+'use client';
+
 import { generateIndexes } from '@/helpers/generateIndexes';
+import { plainFromTextField, SitecoreOrNativeImage } from '@/helpers/sitecoreHydrationSafe';
 import { IGQLTextField } from '@/types/igql';
-import {
-  ComponentParams,
-  ComponentRendering,
-  Image,
-  Link,
-  Text,
-} from '@sitecore-content-sdk/nextjs';
+import { ComponentParams, ComponentRendering, Link, Text } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import React from 'react';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
 import { CommonStyles } from '@/types/styleFlags';
@@ -52,7 +50,7 @@ const FeatureWrapper = (wrapperProps: FeatureWrapperProps) => {
 };
 
 export const Default = (props: FeaturesProps) => {
-  // results of the graphql
+  const isEditing = useHydrationSafeEditing();
   const results = props.fields.data.datasource.children.results;
   const hideAccentLine = props.params.styles?.includes(CommonStyles.HideAccentLine);
   const featureSectionTitle = props.fields.data.datasource.title;
@@ -62,7 +60,11 @@ export const Default = (props: FeaturesProps) => {
       <div className="container grid grid-cols-1 py-20 lg:grid-cols-[1fr_2fr] lg:gap-10">
         <div className="mb-20 lg:mb-0">
           <h2 className="inline-block max-w-md font-bold max-lg:text-[42px]">
-            <Text field={featureSectionTitle.jsonValue} />
+            {isEditing ? (
+              <Text field={featureSectionTitle.jsonValue} />
+            ) : (
+              plainFromTextField(featureSectionTitle.jsonValue)
+            )}
             {!hideAccentLine && <AccentLine className="w-full max-w-xs" />}
           </h2>
         </div>
@@ -73,12 +75,11 @@ export const Default = (props: FeaturesProps) => {
             const link = item.featureLink.jsonValue;
             return (
               <div className="flex flex-col" key={index}>
-                {/* Title, Link and Description */}
                 <div className="mb-5 text-2xl font-bold">
-                  <Text field={title} />
+                  {isEditing ? <Text field={title} /> : plainFromTextField(title)}
                 </div>
                 <div className="text-foreground mb-3.5 flex-auto leading-7">
-                  <Text field={description} />
+                  {isEditing ? <Text field={description} /> : plainFromTextField(description)}
                 </div>
                 <div>
                   <Link field={link} className="arrow-btn" />
@@ -93,7 +94,7 @@ export const Default = (props: FeaturesProps) => {
 };
 
 export const ImageGrid = (props: FeaturesProps) => {
-  // results of the graphql
+  const isEditing = useHydrationSafeEditing();
   const results = props.fields.data.datasource.children.results;
 
   return (
@@ -103,7 +104,13 @@ export const ImageGrid = (props: FeaturesProps) => {
           const imageField = item?.featureImage.jsonValue;
           return (
             <div className="flex items-center justify-center py-9 lg:py-2" key={index}>
-              {imageField && <Image field={imageField} className="max-h-20 object-contain" />}
+              {imageField && (
+                <SitecoreOrNativeImage
+                  field={imageField}
+                  isEditing={isEditing}
+                  className="max-h-20 object-contain"
+                />
+              )}
             </div>
           );
         })}
@@ -113,7 +120,7 @@ export const ImageGrid = (props: FeaturesProps) => {
 };
 
 export const ThreeColGridCentered = (props: FeaturesProps) => {
-  // results of the graphql
+  const isEditing = useHydrationSafeEditing();
   const results = props.fields.data.datasource.children.results;
 
   return (
@@ -127,15 +134,19 @@ export const ThreeColGridCentered = (props: FeaturesProps) => {
             <div className="flex flex-col items-center justify-start 2xl:w-80" key={index}>
               {/* Image */}
               <div className="bg-accent mb-7 flex h-20 w-20 items-center justify-center rounded-full">
-                <Image field={image} />
+                <SitecoreOrNativeImage field={image} isEditing={isEditing} />
               </div>
               {/* Title and Description */}
               <div className="flex flex-col items-center justify-center">
                 <div className="mb-2 leading-0.5">
-                  <Text tag="h5" className="text-accent" field={title} />
+                  {isEditing ? (
+                    <Text tag="h5" className="text-accent" field={title} />
+                  ) : (
+                    <h5 className="text-accent">{plainFromTextField(title)}</h5>
+                  )}
                 </div>
                 <div className="text-background-muted-light text-center">
-                  <Text field={description} />
+                  {isEditing ? <Text field={description} /> : plainFromTextField(description)}
                 </div>
               </div>
             </div>
@@ -147,7 +158,7 @@ export const ThreeColGridCentered = (props: FeaturesProps) => {
 };
 
 export const NumberedGrid = (props: FeaturesProps) => {
-  // results of the graphql
+  const isEditing = useHydrationSafeEditing();
   const results = props.fields.data.datasource.children.results;
 
   return (
@@ -168,10 +179,10 @@ export const NumberedGrid = (props: FeaturesProps) => {
               {/* Title and Description */}
               <div>
                 <div className="text-accent group-hover:text-background mb-4 text-2xl leading-8 font-bold">
-                  <Text field={title} />
+                  {isEditing ? <Text field={title} /> : plainFromTextField(title)}
                 </div>
                 <div className="text-background-muted-dark group-hover:text-background leading-7">
-                  <Text field={description} />
+                  {isEditing ? <Text field={description} /> : plainFromTextField(description)}
                 </div>
               </div>
             </div>
@@ -183,7 +194,7 @@ export const NumberedGrid = (props: FeaturesProps) => {
 };
 
 export const FourColGrid = (props: FeaturesProps) => {
-  // results of the graphql
+  const isEditing = useHydrationSafeEditing();
   const results = props.fields.data.datasource.children.results;
 
   return (
@@ -197,15 +208,19 @@ export const FourColGrid = (props: FeaturesProps) => {
             <div className="grid grid-cols-[1fr_2fr] gap-2.5" key={index}>
               {/* Image */}
               <div className="flex items-center justify-center rounded-full">
-                <Image field={image} />
+                <SitecoreOrNativeImage field={image} isEditing={isEditing} />
               </div>
               {/* Title and Description */}
               <div className="flex flex-col justify-center">
                 <div className="text-xl leading-9 font-bold">
-                  <Text className="text-foreground" field={title} />
+                  {isEditing ? (
+                    <Text className="text-foreground" field={title} />
+                  ) : (
+                    <span className="text-foreground">{plainFromTextField(title)}</span>
+                  )}
                 </div>
                 <div className="text-background-muted-light leading-8">
-                  <Text field={description} />
+                  {isEditing ? <Text field={description} /> : plainFromTextField(description)}
                 </div>
               </div>
             </div>
@@ -217,6 +232,7 @@ export const FourColGrid = (props: FeaturesProps) => {
 };
 
 export const ImageCardGrid = (props: FeaturesProps) => {
+  const isEditing = useHydrationSafeEditing();
   const results = props.fields.data.datasource.children.results;
 
   return (
@@ -229,15 +245,17 @@ export const ImageCardGrid = (props: FeaturesProps) => {
           return (
             <div key={index}>
               <div className="mb-7 aspect-4/3 w-full overflow-hidden rounded-lg bg-white">
-                <Image field={image} className="h-full w-full object-cover" />
+                <SitecoreOrNativeImage
+                  field={image}
+                  isEditing={isEditing}
+                  className="h-full w-full object-cover"
+                />
               </div>
 
-              <h6>
-                <Text field={title} />
-              </h6>
+              <h6>{isEditing ? <Text field={title} /> : plainFromTextField(title)}</h6>
 
               <p className="text-foreground-muted mt-1 text-lg">
-                <Text field={description} />
+                {isEditing ? <Text field={description} /> : plainFromTextField(description)}
               </p>
             </div>
           );

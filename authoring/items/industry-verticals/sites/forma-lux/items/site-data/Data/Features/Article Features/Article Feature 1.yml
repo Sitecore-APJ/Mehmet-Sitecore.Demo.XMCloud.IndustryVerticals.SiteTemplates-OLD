@@ -8,13 +8,13 @@ SharedFields:
 - ID: "83bc80ee-e97a-474b-8c05-a2559394eebe"
   Hint: FeatureImage
   Value: |
-    <image mediaid="cbc2ef16-a679-40e9-82f2-54028c76fdca" />
+    <image mediaid="c73e4c5f-671a-47a4-a518-c4208a14f8cd" />
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 0
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "39b7f18d-cbee-4215-8f98-04c9b4a7a2fc"
+  Value: "a83ec0db-57da-482e-8ae3-ee33a4a1c638"
 - ID: "f6d8a61c-2f84-4401-bd24-52d2068172bc"
   Hint: __Originator
   Value: "{FC2A5072-99B8-4D58-B5E0-B96C40680096}"
@@ -31,7 +31,7 @@ Languages:
       Value: 20250915T102914Z
     - ID: "35b07fa2-ce95-4459-8dd6-074203dda9a7"
       Hint: FeatureDescription
-      Value: "A reading nook tucked beside a floor-to-ceiling bookcase balances coziness with utility. The room flows effortlessly into the dining area, delineated by a shift in lighting and the tone of the wood flooring."
+      Value: 
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -42,17 +42,17 @@ Languages:
         sitecore\movin.tilakaratne@sitecore.com
     - ID: "5f507c84-84f9-4033-81a2-90bca3d12606"
       Hint: FeatureTitle
-      Value: Designed for Function & Flow
+      Value: Art, Design, Photography
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "683ee929-f980-4a32-916c-253924cdc8e6"
+      Value: "b2e7d874-e0dd-4200-806d-84df42f0702c"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\movin.tilakaratne@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20250915T104826Z
+      Value: 20260415T113920Z
 - Language: "es-ES"
   Versions:
   - Version: 1

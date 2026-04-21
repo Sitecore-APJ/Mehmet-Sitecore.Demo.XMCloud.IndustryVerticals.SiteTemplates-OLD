@@ -13,7 +13,7 @@ Languages:
       Value: <r />
     - ID: "17316dee-ddb8-43ec-9d7e-596c4f7662ad"
       Hint: Title
-      Value: Browse The Range
+      Value: Find your course. For the better starts here. 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20250924T121746Z
@@ -31,14 +31,14 @@ Languages:
         sitecore\movin.tilakaratne@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "55e12fb8-6593-4e95-9c79-1f9ca81f678f"
+      Value: "beacae63-842b-4f62-9f01-b923afdc2ed4"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251127T103505Z
+      Value: 20260415T113307Z
 - Language: "es-ES"
   Versions:
   - Version: 1

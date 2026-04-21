@@ -13,7 +13,7 @@ Languages:
       Value: <r />
     - ID: "15b40d2f-fd70-4928-b4c0-b85a48eb18d2"
       Hint: OfferText
-      Value: 20% OFF YOUR FIRST ORDER | NEW CUSTOMERS ONLY
+      Value: FREE TAFE
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20250828T151921Z
@@ -27,14 +27,14 @@ Languages:
         sitecore\movin.tilakaratne@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "26438b6b-101a-42fa-bd2f-e3c0107d82d2"
+      Value: "274da30d-5024-4f00-bcb3-cea1efcf5a53"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\movin.tilakaratne@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20250829T071112Z
+      Value: 20260415T112340Z
 - Language: "es-ES"
   Versions:
   - Version: 1

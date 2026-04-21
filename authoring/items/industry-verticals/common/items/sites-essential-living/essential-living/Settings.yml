@@ -46,10 +46,10 @@ SharedFields:
   Value: "{96E5F4BA-A2CF-4A4C-A4E7-64DA88226362}"
 - ID: "d0ce707c-342f-4c02-ac0a-edb21346dde4"
   Hint: SupportedLanguages
-  Value: "{AF584191-45C9-4201-8740-5409F4CF8BDD}|{E2822945-9EBE-42C2-956A-CE34DDC847BF}|{18959C38-7695-4D4E-8475-A37A226B5E49}"
+  Value: af58419145c9420187405409f4cf8bdd|18959c3876954d4e8475a37a226b5e49
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "6c57df78-93e8-44ba-9264-43eeb868de60"
+  Value: "5af8cc66-00c5-4799-9068-9ac2eb39b2a1"
 - ID: "e8881464-38af-4655-be4a-ee10586578a2"
   Hint: Templates
   Value: "{5FDD8C61-B5A8-4F0C-B855-5ED157ED470D}"
@@ -77,11 +77,11 @@ Languages:
         sitecore\neli.kostadinova@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "cbab114d-1b29-4577-8a95-8934c773d1d7"
+      Value: "7e41f5c4-dd06-4264-a7c8-be3fdd3e2a83"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\neli.kostadinova@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251111T120532Z
+      Value: 20260107T222926Z

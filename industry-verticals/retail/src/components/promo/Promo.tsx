@@ -1,6 +1,7 @@
+'use client';
+
 import React, { JSX } from 'react';
 import {
-  NextImage as ContentSdkImage,
   RichText as ContentSdkRichText,
   Field,
   ImageField,
@@ -9,6 +10,8 @@ import {
   RichTextField,
   Text,
 } from '@sitecore-content-sdk/nextjs';
+import { plainFromTextField, richTextHtml, SitecoreOrNativeImage } from '@/helpers/sitecoreHydrationSafe';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { ComponentProps } from 'lib/component-props';
 import clsx from 'clsx';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
@@ -30,6 +33,7 @@ type PromoImageGroupProps = Partial<
 > & {
   withShapes?: boolean;
   withShadows?: boolean;
+  isEditing: boolean;
 };
 
 export type PromoProps = ComponentProps & {
@@ -39,22 +43,30 @@ export type PromoProps = ComponentProps & {
 
 const isShadowClassActive = (val: boolean) => (val ? 'shadow-2xl' : '');
 
-export const PromoContent = ({ ...props }) => {
+export const PromoContent = ({ isEditing, ...props }: PromoProps & { isEditing: boolean }) => {
   const isAccentLineVisible = !props?.params?.styles?.includes(CommonStyles.HideAccentLine);
 
   return (
     <div className="space-y-5">
       <div className="eyebrow">
-        <Text field={props.fields.PromoSubTitle} />
+        {isEditing ? (
+          <Text field={props.fields.PromoSubTitle} />
+        ) : (
+          plainFromTextField(props.fields.PromoSubTitle)
+        )}
       </div>
 
       <h2 className="inline-block max-w-md">
-        <Text field={props.fields.PromoTitle} />
+        {isEditing ? <Text field={props.fields.PromoTitle} /> : plainFromTextField(props.fields.PromoTitle)}
         {isAccentLineVisible && <AccentLine className="w-full max-w-xs" />}
       </h2>
 
       <div className="max-w-lg text-lg">
-        <ContentSdkRichText field={props.fields.PromoDescription} />
+        {isEditing ? (
+          <ContentSdkRichText field={props.fields.PromoDescription} />
+        ) : (
+          <div dangerouslySetInnerHTML={{ __html: richTextHtml(props.fields.PromoDescription) }} />
+        )}
       </div>
 
       <Link field={props.fields.PromoMoreInfo} className="arrow-btn" />
@@ -66,6 +78,7 @@ export const SingleImageContainer = ({
   PromoImageOne,
   withShapes,
   withShadows,
+  isEditing,
 }: PromoImageGroupProps): JSX.Element => {
   const shadowClass = isShadowClassActive(withShadows ?? false);
   return (
@@ -81,7 +94,11 @@ export const SingleImageContainer = ({
           <div
             className={`relative z-10 aspect-4/3 w-full max-w-4xl overflow-hidden rounded-2xl ${shadowClass}`}
           >
-            <ContentSdkImage field={PromoImageOne} className="h-full w-full object-cover" />
+            <SitecoreOrNativeImage
+              field={PromoImageOne!}
+              isEditing={isEditing}
+              className="h-full w-full object-cover"
+            />
           </div>
         </div>
       </div>
@@ -95,6 +112,7 @@ export const MultipleImageContainer = ({
   PromoImageThree,
   withShapes,
   withShadows,
+  isEditing,
 }: PromoImageGroupProps): JSX.Element => {
   const shadowClass = isShadowClassActive(withShadows ?? false);
   const marginClass = withShapes ? 'mr-4' : '';
@@ -107,14 +125,22 @@ export const MultipleImageContainer = ({
             <div
               className={`relative z-10 h-full w-full overflow-hidden rounded-2xl ${shadowClass}`}
             >
-              <ContentSdkImage field={PromoImageTwo} className="h-full w-full object-cover" />
+              <SitecoreOrNativeImage
+                field={PromoImageTwo!}
+                isEditing={isEditing}
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
           <div className="relative aspect-2/3 overflow-visible rounded-2xl">
             <div
               className={`relative z-10 h-full w-full overflow-hidden rounded-2xl ${shadowClass}`}
             >
-              <ContentSdkImage field={PromoImageThree} className="h-full w-full object-cover" />
+              <SitecoreOrNativeImage
+                field={PromoImageThree!}
+                isEditing={isEditing}
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>
@@ -126,8 +152,9 @@ export const MultipleImageContainer = ({
             <div
               className={`relative z-10 h-full w-full overflow-hidden rounded-2xl ${shadowClass}`}
             >
-              <ContentSdkImage
-                field={PromoImageOne}
+              <SitecoreOrNativeImage
+                field={PromoImageOne!}
+                isEditing={isEditing}
                 className="absolute inset-0 h-full w-full object-cover"
               />
             </div>
@@ -139,6 +166,7 @@ export const MultipleImageContainer = ({
 };
 
 export const Default = (props: PromoProps): JSX.Element => {
+  const isEditing = useHydrationSafeEditing();
   const id = props.params.RenderingIdentifier;
   const isPromoReversed = !props?.params?.styles?.includes(LayoutStyles.Reversed)
     ? ''
@@ -160,6 +188,7 @@ export const Default = (props: PromoProps): JSX.Element => {
               PromoImageOne={props.fields.PromoImageOne}
               withShapes={withShapes}
               withShadows={withShadows}
+              isEditing={isEditing}
             />
           ) : (
             <MultipleImageContainer
@@ -168,12 +197,13 @@ export const Default = (props: PromoProps): JSX.Element => {
               PromoImageThree={props.fields.PromoImageThree}
               withShapes={withShapes}
               withShadows={withShadows}
+              isEditing={isEditing}
             />
           )}
         </div>
 
         <div className={`col-span-full ${secondColumnSize} ${justifyContentClass}`}>
-          <PromoContent {...props} />
+          <PromoContent {...props} isEditing={isEditing} />
         </div>
       </div>
     </section>
@@ -181,6 +211,7 @@ export const Default = (props: PromoProps): JSX.Element => {
 };
 
 export const WithFullImage = (props: PromoProps): JSX.Element => {
+  const isEditing = useHydrationSafeEditing();
   const id = props.params.RenderingIdentifier;
   const isPromoReversed = !props?.params?.styles?.includes(LayoutStyles.Reversed)
     ? ' flex-col'
@@ -190,26 +221,42 @@ export const WithFullImage = (props: PromoProps): JSX.Element => {
     <section className={`${props.params.styles} py-20`} id={id ? id : undefined}>
       <div className={`container flex ${isPromoReversed}`}>
         <div className="relative my-10 aspect-[1232/608] overflow-hidden rounded-2xl">
-          <ContentSdkImage
+          <SitecoreOrNativeImage
             field={props.fields.PromoImageTwo}
+            isEditing={isEditing}
             className="h-full w-full object-cover"
           />
         </div>
 
         <div className="space-y-5">
           <div className="text-foreground-light font-semibold uppercase">
-            <Text field={props.fields.PromoSubTitle} />
+            {isEditing ? (
+              <Text field={props.fields.PromoSubTitle} />
+            ) : (
+              plainFromTextField(props.fields.PromoSubTitle)
+            )}
           </div>
 
           <div className="grid-col-1 grid gap-5 md:grid-cols-2">
             <div className="font-bold">
               <h2 className="max-w-md">
-                <Text field={props.fields.PromoTitle} />
+                {isEditing ? (
+                  <Text field={props.fields.PromoTitle} />
+                ) : (
+                  plainFromTextField(props.fields.PromoTitle)
+                )}
               </h2>
             </div>
 
             <div className="flex max-w-md items-center">
-              <ContentSdkRichText className="promo-text" field={props.fields.PromoDescription} />
+              {isEditing ? (
+                <ContentSdkRichText className="promo-text" field={props.fields.PromoDescription} />
+              ) : (
+                <div
+                  className="promo-text"
+                  dangerouslySetInnerHTML={{ __html: richTextHtml(props.fields.PromoDescription) }}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -219,6 +266,7 @@ export const WithFullImage = (props: PromoProps): JSX.Element => {
 };
 
 export const WithQuote = (props: PromoProps): JSX.Element => {
+  const isEditing = useHydrationSafeEditing();
   const id = props.params.RenderingIdentifier;
   const withQuote = !props?.params?.styles?.includes(PromoFlags.HidePromoQuotes);
   const isReversed = !props?.params?.styles?.includes(LayoutStyles.Reversed);
@@ -239,7 +287,7 @@ export const WithQuote = (props: PromoProps): JSX.Element => {
     >
       {withQuote && (
         <div
-          className={`absolute left-5 md:top-[10%] lg:top-[25%] lg:left-1/2 lg:-translate-x-1/2 ${classesWhenReversed.quoteFlip} } text-background-accent! z-20`}
+          className={`absolute left-5 md:top-[10%] lg:top-[25%] lg:left-1/2 lg:-translate-x-1/2 ${classesWhenReversed.quoteFlip} text-background-accent! z-20`}
         >
           <Quote className="h-10 md:h-20 lg:h-25 xl:h-30" />
         </div>
@@ -251,15 +299,16 @@ export const WithQuote = (props: PromoProps): JSX.Element => {
               className={`relative mt-10 flex items-center justify-center lg:col-span-1 ${classesWhenReversed.contentOrder}`}
             >
               <div className="text-foreground! mb-5 max-w-sm">
-                <PromoContent {...props} />
+                <PromoContent {...props} isEditing={isEditing} />
               </div>
             </div>
 
             <div
               className={`relative z-30 order-2 mb-2 aspect-2/1 w-full translate-y-[25%] scale-100 place-self-end lg:order-1 lg:col-span-2 lg:h-3/4 xl:scale-90 ${classesWhenReversed.imageTransform}`}
             >
-              <ContentSdkImage
+              <SitecoreOrNativeImage
                 field={props.fields.PromoImageOne}
+                isEditing={isEditing}
                 className="absolute inset-0 h-full w-full rounded-2xl object-cover"
               />
             </div>

@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
-import { Link, TextField, useSitecore } from '@sitecore-content-sdk/nextjs';
+import { Link, TextField } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { ComponentProps } from 'lib/component-props';
 import { ChevronDown } from 'lucide-react';
 import HamburgerIcon from '@/components/non-sitecore/HamburgerIcon';
@@ -46,7 +47,7 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
   logoSrc,
   isSimpleLayout,
 }) => {
-  const { page } = useSitecore();
+  const isEditing = useHydrationSafeEditing();
   const [isActive, setIsActive] = useState(false);
 
   const dropdownRef = useRef<HTMLLIElement>(null);
@@ -92,7 +93,7 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
       <div className="flex items-center justify-center gap-1">
         <Link
           field={getLinkField(fields)}
-          editable={page.mode.isEditing}
+          editable={isEditing}
           onClick={clickHandler}
           className="hover:text-foreground-light whitespace-nowrap transition-colors"
         >
@@ -149,7 +150,7 @@ const NavigationListItem: React.FC<NavigationListItemProps> = ({
 
 export const Default = ({ params, fields }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { page } = useSitecore();
+  const isEditing = useHydrationSafeEditing();
   const { styles, RenderingIdentifier: id, Logo: logoImage, SimpleLayout: simpleLayout } = params;
 
   useStopResponsiveTransition();
@@ -163,7 +164,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
   }
 
   const handleToggleMenu = (event?: React.MouseEvent<HTMLElement>, forceState?: boolean) => {
-    if (event && page.mode.isEditing) {
+    if (event && isEditing) {
       event.preventDefault();
     }
     setIsMenuOpen(forceState ?? !isMenuOpen);
@@ -201,7 +202,7 @@ export const Default = ({ params, fields }: NavigationProps) => {
         {hasLogoRootItem && (
           <Link
             field={getLinkField(rootItem!)}
-            editable={page.mode.isEditing}
+            editable={isEditing}
             className={clsx(
               'navigation-mobile-trigger',
               !isSimpleLayout && '[.component.header_&]:mx-auto'

@@ -18,11 +18,11 @@ SharedFields:
 - ID: "61dfb6ba-1cd3-42ec-97d7-75ca2522920c"
   Hint: ogImage
   Value: |
-    <Image src="https://starter-verticals-v2.sitecoresandbox.cloud/api/public/content/49689e980528431b86086dc363721e0d?v=f0cd6908" dam-id="NuPqTaaSRP2KkZ6K1sMv9g" width="3840" height="2160" alt="Rectangle 68 (2).jpg" dam-content-type="Image" thumbnailsrc="https://starter-verticals-v2.sitecoresandbox.cloud/api/gateway/67023/thumbnail" />
+    <Image src="https://starter-verticals-2.sitecoresandbox.cloud/api/public/content/49689e980528431b86086dc363721e0d?v=f0cd6908" dam-id="NuPqTaaSRP2KkZ6K1sMv9g" width="3840" height="2160" alt="Rectangle 68 (2).jpg" dam-content-type="Image" thumbnailsrc="https://starter-verticals-2.sitecoresandbox.cloud/api/gateway/67023/thumbnail" />
 - ID: "7f7ef9d5-f278-4bfe-94fb-c4be7894feb5"
   Hint: Image
   Value: |
-    <Image src="https://starter-verticals-v2.sitecoresandbox.cloud/api/public/content/56ed3da761284587a81b95612169f224?v=482e83fc" dam-id="JvO38VzSTBOaEPi8_cRk0g" width="3840" height="2160" alt="article4.jpg" dam-content-type="Image" thumbnailsrc="https://starter-verticals-v2.sitecoresandbox.cloud/api/gateway/76598/thumbnail" />
+    <image mediaid="0fb8602e-8bba-425f-9c55-4a79affd3c62" />
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 50
@@ -32,7 +32,7 @@ SharedFields:
     <image mediaid="{E65E4578-2747-482C-B25A-E1C1CF6760EF}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "31e86e16-b307-4a43-ad61-633f27f66c91"
+  Value: "0253b262-cf8e-41f1-9186-38db264babed"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -56,10 +56,10 @@ Languages:
   Fields:
   - ID: "30e85e5d-e00a-4864-b358-7624d511deb4"
     Hint: __Unversioned revision
-    Value: "76206135-8c03-438f-bcd5-e573e7eeef1a"
+    Value: "5c9cf4a1-320e-456e-9737-f1dc2ebda296"
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Handmade pieces that took time to make
+    Value:  Turning industry experience into a teaching career
   Versions:
   - Version: 1
     Fields:
@@ -68,7 +68,17 @@ Languages:
       Value: <r />
     - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
       Hint: __Final Renderings
-      Value: 
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{B5F00C71-8625-4C21-BB85-E5C67EA3DD47}">
+              <p:d />
+            </r>
+          </d>
+        </r>
     - ID: "17b75967-9b67-4eb9-bb35-bbe0228ca368"
       Hint: pageSummary
       Value: "At Forma Lux, time is a material in itself. Handmade Pieces That Took Time to Make reflects the art of slow creation—each piece shaped by deliberate rhythm and care. Iron, driftwood, and hand-thrown pottery coexist in perfect balance, forming interiors rich with authenticity and quiet luxury. The result is more than décor; it’s an experience of craft, patience, and permanence in an age of speed."
@@ -77,7 +87,7 @@ Languages:
       Value: 20250917T090300Z
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
-      Value: Handmade pieces that took time to make
+      Value:  Turning industry experience into a teaching career
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -85,7 +95,7 @@ Languages:
     - ID: "56a52337-177b-46b4-ae72-6b9083bb6700"
       Hint: Content
       Value: |
-        <div class="ck-content"><figure class="image image_resized image-style-align-right" style="width:42.48%;"><img class="image_resized" style="aspect-ratio:520/282;" src="-/media/949C1CB9D30246B0AB197E5E2F4B611C.ashx" alt="pexels-vecislavas-popa-1571453 1" width="520" height="282" /></figure><h3>Statement Pieces That Spark Conversation</h3><p>A suspended iron light fixture draws the eye, hovering above a low-profile coffee table crafted from driftwood. Nearby, a sculptural bookshelf holds a curated mix of art, plants, and ceramics, offering both function and flair.</p><p>It is a well-thought-out layout that naturally guides the eye through the room. Every design element—whether structural or decorative—feels intentional, contributing to the room’s harmonious vibe. A neutral palette dominates, but touches of terracotta and navy add personality without overwhelming the senses. Artisanal details, like hand-thrown pottery and textured wall panels, infuse warmth and authenticity.</p><p>It is a well-thought-out layout that naturally guides the eye through the room. Every design element—whether structural or decorative—feels intentional, contributing to the room’s harmonious vibe. A neutral palette dominates, but touches of terracotta and navy add personality without overwhelming the senses. Artisanal details, like hand-thrown pottery and textured wall panels, infuse warmth and authenticity.</p></div>
+        <div class="ck-content"><p>Across Victoria, skilled workers are in high demand – particularly in the trades. As industries look to build a strong pipeline of talent, there is also a need for qualified trainers and assessors with real-world experience to prepare students with the skills employers need.</p><p>For experienced professionals, this creates a meaningful opportunity: to stay connected to their trade while helping shape its future. With a recognised qualification like the Certificate IV in Training and Assessment (TAE40122), your expertise can become the foundation for a rewarding career in vocational education.</p><p>At Chisholm, many of our trainers began their careers on job sites, in workshops or running their own businesses. Here, four of our trades teachers share how they made the move from industry into TAFE teaching – and why it’s been a rewarding next step.</p></div>
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
@@ -93,24 +103,24 @@ Languages:
     - ID: "62c99938-d40e-4878-ab77-3464abd79fd5"
       Hint: ShortDescription
       Value: |
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.
+        Hear from four Chisholm teachers who have taken their trade into the classroom and are shaping the next generation of professionals.
         
     - ID: "7a52d039-c368-46c1-b93d-5cbd5b802f73"
       Hint: metadataDescription
       Value: Explore how patience and precision define Handmade Pieces That Took Time to Make. Forma Lux celebrates slow design—crafted furniture and home décor where every curve, texture, and finish reflects human touch.
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "797b2d91-0430-4260-a35d-0da42be5261f"
+      Value: "04704b70-0872-4115-a491-3e6a6b71510e"
     - ID: "9c8beb3d-e162-4540-bb7d-9504db078f44"
       Hint: Title
-      Value: Handmade pieces that took time to make
+      Value: Turning industry experience into a teaching career 
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20260129T163936Z
+      Value: 20260415T115328Z
     - ID: "e4df8bb9-c0d9-475d-92b4-dcb526bd6b38"
       Hint: metadataTitle
       Value: Handmade Pieces That Took Time to Make | Forma Lux Journal – The Beauty of Patience in Design

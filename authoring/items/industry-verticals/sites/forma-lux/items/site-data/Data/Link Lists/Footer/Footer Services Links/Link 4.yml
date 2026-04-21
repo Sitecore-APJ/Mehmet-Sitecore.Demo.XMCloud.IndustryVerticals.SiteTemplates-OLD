@@ -31,18 +31,17 @@ Languages:
         sitecore\isuru.bandara@sitecore.com
     - ID: "68c2a603-f98e-42a3-be2d-dd70598c2a63"
       Hint: Link
-      Value: |
-        <link linktype="internal" id="af977a9b-c5e9-4195-aa90-00c05f900365" anchor="" querystring="" target="" class="" text="Landing Pages" title=""/>
+      Value: 
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "5c6f5a10-716a-45dc-8474-f0762281eb6e"
+      Value: "a9b603de-f89d-4d15-89c4-9c74423f5f0f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\isuru.bandara@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251201T110614Z
+      Value: 20260415T120151Z
 - Language: "es-ES"
   Versions:
   - Version: 1

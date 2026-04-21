@@ -1,4 +1,8 @@
-import { Text as ContentSdkText, useSitecore } from '@sitecore-content-sdk/nextjs';
+'use client';
+
+import { plainFromTextField } from '@/helpers/sitecoreHydrationSafe';
+import { Text as ContentSdkText } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { useEffect, useState } from 'react';
 import SocialShare from '../non-sitecore/SocialShare';
 import { useI18n } from 'next-localization';
@@ -9,17 +13,17 @@ interface ProductMetaDetalsProps {
 }
 
 export const ProductMetaDetals = ({ product }: ProductMetaDetalsProps) => {
-  const { page } = useSitecore();
   const { t } = useI18n();
-
-  const isPageEditing = page.mode.isEditing;
+  const isPageEditing = useHydrationSafeEditing();
 
   const [currentUrl, setCurrentUrl] = useState('');
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setCurrentUrl(window.location.href);
     }
+    setIsMounted(true);
   }, [product]);
 
   return (
@@ -31,7 +35,11 @@ export const ProductMetaDetals = ({ product }: ProductMetaDetalsProps) => {
               <dt>{t('product_sku_label') || 'SKU'}</dt>
               <dd className="text-center">:</dd>
               <dd>
-                <ContentSdkText field={product.SKU} />
+                {isPageEditing ? (
+                  <ContentSdkText field={product.SKU} />
+                ) : (
+                  plainFromTextField(product.SKU)
+                )}
               </dd>
             </>
           )}
@@ -52,17 +60,21 @@ export const ProductMetaDetals = ({ product }: ProductMetaDetalsProps) => {
             </>
           )}
 
-          <dt className="flex items-center">{t('product_share_label') || 'Share'}</dt>
-          <dd className="flex items-center justify-center">:</dd>
-          <dd className="mr-1">
-            <SocialShare
-              url={currentUrl}
-              title={product.Title?.value ?? ''}
-              round={true}
-              className="flex flex-wrap gap-3"
-              iconClassName="size-8"
-            />
-          </dd>
+          {isMounted && (
+            <>
+              <dt className="flex items-center">{t('product_share_label') || 'Share'}</dt>
+              <dd className="flex items-center justify-center">:</dd>
+              <dd className="mr-1">
+                <SocialShare
+                  url={currentUrl}
+                  title={product.Title?.value ?? ''}
+                  round={true}
+                  className="flex flex-wrap gap-3"
+                  iconClassName="size-8"
+                />
+              </dd>
+            </>
+          )}
         </dl>
       </div>
     </>

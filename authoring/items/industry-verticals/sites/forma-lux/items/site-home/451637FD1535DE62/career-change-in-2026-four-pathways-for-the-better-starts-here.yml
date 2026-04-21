@@ -1,0 +1,96 @@
+﻿---
+ID: "8ab941c6-6c0f-4832-8e06-e169d010e7b3"
+Parent: "e9a6e6f8-3dd6-4664-a6e0-1923816f94c6"
+Template: "412bf445-b1a6-4aff-8054-0b21a1febc47"
+Path: "/sitecore/content/industry-verticals/forma-lux/Home/Articles/career-change-in-2026-four-pathways-for-the-better-starts-here"
+SharedFields:
+- ID: "5f90c361-338c-4896-b022-11dafa5c2241"
+  Hint: PublishedDate
+  Value: 20260101T000000Z
+- ID: "97fb669d-5b8e-4829-9a24-06418c315d73"
+  Hint: SxaTags
+  Value: Career Change|TAFE|Chisholm|Allied Health|Nursing|Early Childhood|Community Services|Youth Work|Cyber Security|Information Technology|Trades|Construction|Free TAFE
+- ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
+  Hint: __Thumbnail
+  Value: |
+    <image mediaid="{F7290A19-67A7-42D4-B101-7D2AD89A042E}" />
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "46c5ba90-e076-472f-bf0f-827290521b5b"
+Languages:
+- Language: en
+  Fields:
+  - ID: "30e85e5d-e00a-4864-b358-7624d511deb4"
+    Hint: __Unversioned revision
+    Value: "5a14e00b-6733-445b-a4d3-a802329869c9"
+  - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
+    Hint: __Display name
+    Value: "Career Change in 2026: Four Pathways Where “For the better starts here”"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "17b75967-9b67-4eb9-bb35-bbe0228ca368"
+      Hint: pageSummary
+      Value: Many Victorians are changing careers or upskilling for 2026. This guide outlines four strong pathways—Allied Health & Nursing, Early Childhood & Community Services, Cyber Security & IT, and Skilled Trades & Construction—plus how Chisholm supports learners with placements, flexible delivery and Free TAFE options for eligible students.
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260415T141105Z
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: Career Change in 2026
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\mehmet.vanli@sitecore.com
+    - ID: "56a52337-177b-46b4-ae72-6b9083bb6700"
+      Hint: Content
+      Value: |
+        <div class="ck-content"><p>At Chisholm Institute, we see career changers and upskillers every day: parents returning to work, tradies stepping into supervision, IT tinkerers turning pro, and people ready to care for others in their community. If that’s you, here are four high-demand pathways where your better start can begin.</p><h2>1) Allied Health &amp; Nursing: Turn care into a career</h2><h3>Why this is growing</h3><p>Health and community care continues to be one of Victoria’s fastest-growing sectors. An ageing population, NDIS growth and hospital expansions mean more jobs for enrolled nurses and allied health assistants across hospitals, aged care, rehab and community services.</p><h3>Who it suits</h3><ul><li>Career changers who want meaningful, people-focused work</li><li>Parents and carers looking for flexible shift-based roles</li><li>Health support workers ready to formalise skills and step up</li></ul><h3>How Chisholm helps you start</h3><ul><li><strong>Diploma of Nursing (HLT54121)</strong> — learn in our modern nursing labs at Berwick and Frankston, then build confidence on clinical placement with real health services. Eligible students may access Free TAFE (tuition-free) — check your eligibility.</li><li><strong>Certificate IV in Allied Health Assistance (HLT43021)</strong> — study at Frankston or Berwick in a supportive, hands-on environment, with structured placement to build job-ready skills.</li><li><strong>Supportive study options</strong>: blended learning, smaller classes and teachers with real industry experience.</li></ul><h2>2) Early Childhood &amp; Community Services: Build strong futures</h2><h3>Why this is growing</h3><p>Victoria’s Best Start, Best Life reforms and strong demand for community services are creating more roles for early childhood educators, youth workers and case workers. If you’re driven to support children, families and communities, your skills are needed.</p><h3>Who it suits</h3><ul><li>People who value purpose-led work and positive impact</li><li>School and sport volunteers looking to formalise their experience</li><li>Retail/hospitality workers ready for steadier hours and a career pathway</li></ul><h3>How Chisholm helps you start</h3><ul><li><strong>Early Childhood Education and Care</strong>: Certificate III (CHC30121/CHC30125) across Berwick, Dandenong and Frankston; Diploma (CHC50121/CHC50125) from Dandenong. Both include substantial placement to build confidence and employability. Many intakes are Free TAFE for eligible students.</li><li><strong>Community Services &amp; Youth Work</strong>: Diploma of Community Services (CHC52021) at Frankston and Dandenong; Diploma of Youth Work (CHC50421) at Dandenong. Learn counselling skills, case work and program design with teachers who’ve worked on the front line.</li></ul><h2>3) Cyber Security &amp; IT: Turn curiosity into a career</h2><h3>Why this is growing</h3><p>Every business relies on secure, reliable technology. From small firms to government agencies, demand is strong for people who can protect networks, support users and keep systems running.</p><h3>Who it suits</h3><ul><li>Career changers who love problem-solving and learning new tools</li><li>Self-taught tech tinkerers ready for a formal qualification</li><li>Admin and customer service pros looking to move into higher-growth roles</li></ul><h3>How Chisholm helps you start</h3><ul><li><strong>Certificate IV in Cyber Security (22603VIC)</strong> — delivered at Dandenong, Frankston and Berwick, with practical labs that mirror real-world security tasks. This course is a Free TAFE priority course for eligible students.</li><li><strong>Information Technology</strong> — from entry-level pathways to diplomas and degree options in cyber, networking and cloud. Learn from industry-connected teachers and build a portfolio that employers recognise.</li></ul><h2>4) Skilled Trades &amp; Construction: Make it and make it count</h2><h3>Why this is growing</h3><p>Major Victorian infrastructure, housing and energy projects continue to fuel demand for qualified tradespeople and supervisors across carpentry, electrical, plumbing and more. If you like tangible results and teamwork, trades are a direct route into solid, long-term work.</p><h3>Who it suits</h3><ul><li>Hands-on learners who want to see the impact of their work every day</li><li>Career changers seeking stable, well-paid roles with progression</li><li>Apprentices and experienced workers ready to upskill into leadership</li></ul><h3>How Chisholm helps you start</h3><ul><li><strong>Apprenticeships</strong> in Carpentry (CPC30220), Electrotechnology Electrician (UEE30820) and Plumbing (CPC32420) across Berwick, Dandenong and Frankston, with multi-trade workshops and experienced trainers.</li><li><strong>Pre-apprenticeship and short course options</strong> to test the fit, refresh skills or step into new technologies and compliance.</li><li><strong>Strong employer links and trade-ready facilities</strong> to help you move quickly from training to site.</li></ul><h2>Why choose Chisholm for your next chapter</h2><ul><li><strong>Campuses close to home</strong>: study across Melbourne’s south-east — Dandenong, Frankston, Berwick, Cranbourne, Bass Coast, Mornington Peninsula and Springvale — plus online options.</li><li><strong>Real skills, real support</strong>: practical training, industry placements and teachers who know what employers want.</li><li><strong>Options that fit your life</strong>: full-time, part-time, evening and blended study, with dedicated student support from enrolment to employment.</li><li><strong>Government-supported training</strong>: many priority qualifications are available tuition-free for eligible students under Free TAFE. We’ll help you check your eligibility and find the best pathway for your goals.</li></ul><h2>Take the next step</h2><p>Your better start is closer than you think. Whether you’re ready to retrain, return to work or level up for your next role, we’ll help you build skills that employers value — and a career you’ll feel proud of. Explore courses and upcoming intakes at <a href="https://www.chisholm.edu.au">chisholm.edu.au</a> and talk to our team about the right pathway for you.</p><p><strong>For the better starts here.</strong></p></div>
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\mehmet.vanli@sitecore.com
+    - ID: "62c99938-d40e-4878-ab77-3464abd79fd5"
+      Hint: ShortDescription
+      Value: "Thinking about a new direction for 2026? Explore four high-demand, future-proof pathways at Chisholm TAFE—Allied Health & Nursing, Early Childhood & Community Services, Cyber Security & IT, and Skilled Trades & Construction—with flexible study options and Free TAFE availability for eligible students."
+    - ID: "7a52d039-c368-46c1-b93d-5cbd5b802f73"
+      Hint: metadataDescription
+      Value: "Considering a career change in 2026? Discover four high-demand pathways at Chisholm TAFE—health, community services, cyber security/IT and trades—plus flexible study options and Free TAFE for eligible students."
+    - ID: "844baf54-2f0e-42a5-8cab-5f596ea60c3e"
+      Hint: ReadTime
+      Value: 6 min read
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "d8fa13b9-7a0a-4086-9d80-7c360f729fea"
+    - ID: "9c8beb3d-e162-4540-bb7d-9504db078f44"
+      Hint: Title
+      Value: "Career Change in 2026: Four Pathways Where “For the better starts here”"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\mehmet.vanli@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260415T141212Z
+    - ID: "e4df8bb9-c0d9-475d-92b4-dcb526bd6b38"
+      Hint: metadataTitle
+      Value: "Career Change in 2026 | Four Future-Proof Pathways at Chisholm"
+    - ID: "f04feaa2-f9a4-4030-907d-18fc3b18b0f4"
+      Hint: metadataKeywords
+      Value: |
+        career change 2026
+        TAFE Victoria
+        Chisholm Institute
+        Free TAFE
+        Diploma of Nursing HLT54121
+        Allied Health Assistance HLT43021
+        Early Childhood Education and Care CHC30121 CHC50121
+        Community Services CHC52021
+        Youth Work CHC50421
+        Cyber Security 22603VIC
+        apprenticeships carpentry CPC30220
+        electrician UEE30820
+        plumbing CPC32420

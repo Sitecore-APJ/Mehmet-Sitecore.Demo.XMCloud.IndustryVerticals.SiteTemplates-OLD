@@ -7,13 +7,13 @@ SharedFields:
 - ID: "83bc80ee-e97a-474b-8c05-a2559394eebe"
   Hint: FeatureImage
   Value: |
-    <image mediaid="f9aa0bbe-a308-4ded-a641-8cef763ef70e" />
+    <image mediaid="b345d177-3894-4f35-9193-73a383c48958" />
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 50
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "806acabf-bdd8-42fa-a082-ec6e7669a8a8"
+  Value: "19786057-341e-4946-8809-38b83a29caf0"
 Languages:
 - Language: en
   Versions:
@@ -27,7 +27,7 @@ Languages:
       Value: 20250915T104825Z
     - ID: "35b07fa2-ce95-4459-8dd6-074203dda9a7"
       Hint: FeatureDescription
-      Value: Large indoor plants flank the room’s corners, echoing the view outside and breathing life into the interior. Organic elements are repeated throughout, from stone planters to rattan light shades, uniting the design.
+      Value: 
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -38,17 +38,17 @@ Languages:
         sitecore\movin.tilakaratne@sitecore.com
     - ID: "5f507c84-84f9-4033-81a2-90bca3d12606"
       Hint: FeatureTitle
-      Value: Bringing the Outdoors In 
+      Value: Automotive
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a63c2a88-9871-4568-aa6b-60f50ba506d7"
+      Value: "6b04ff24-b4e3-4f3d-9ecf-06b6048f62de"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\movin.tilakaratne@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20250915T105549Z
+      Value: 20260415T113858Z
 - Language: "es-ES"
   Versions:
   - Version: 1

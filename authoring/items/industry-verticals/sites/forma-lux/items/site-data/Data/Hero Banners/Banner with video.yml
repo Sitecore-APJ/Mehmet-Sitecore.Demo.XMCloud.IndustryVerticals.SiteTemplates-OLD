@@ -7,14 +7,14 @@ SharedFields:
 - ID: "00b71f70-411d-4ea1-a423-74ed20b60157"
   Hint: Image
   Value: |
-    <image mediaid="399a3165-d906-4033-8db7-bb1b280a14e8" />
+    <image mediaid="{AB875800-FD44-4FD5-B1D5-90CE476F8EC4}" />
 - ID: "d74790ee-7289-4a66-b921-71da75df6cde"
   Hint: Video
   Value: |
-    <file mediaid="{92E6B3A9-D96B-4453-9F06-0D8C519DC4F9}" src="-/media/92E6B3A9D96B44539F060D8C519DC4F9.ashx" />
+    <file mediaid="{F8816870-94B5-42B1-9B02-0183331F9BF4}" src="-/media/F881687094B542B19B020183331F9BF4.ashx" mediapath="/Project/industry-verticals/forma-lux/HeroBanners/brand-video2" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "8e536d11-d6a9-4e3d-a6b5-bb035535b7b0"
+  Value: "5301904d-7252-4361-8822-b8ee5c9471ce"
 Languages:
 - Language: en
   Versions:
@@ -25,8 +25,7 @@ Languages:
       Value: <r />
     - ID: "1dec177a-1a9b-41cf-a60c-d89f28fa41e8"
       Hint: Description
-      Value: |
-        <div class="ck-content"><p>A curated collection of modern pieces that blend elegance and functionality.</p></div>
+      Value: 
     - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
       Hint: __Created
       Value: 20250909T080217Z
@@ -40,21 +39,20 @@ Languages:
         sitecore\movin.tilakaratne@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "ef8c49e6-c08c-4ec6-9260-82624fb1e277"
+      Value: "84dfef01-7bd8-4448-b306-4e1e3eb0610b"
     - ID: "985b877b-bfee-473e-aada-0a9f156dfecc"
       Hint: Title
-      Value: Discover Design
+      Value: Apply Now For 2026
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251127T103505Z
+      Value: 20260420T045400Z
     - ID: "e3c72e5d-cbf1-4af8-8a73-dc4d3c8590f3"
       Hint: CtaLink
-      Value: |
-        <link class="" querystring="" id="4e869961-efef-4b47-bb69-170a251d689b" anchor="" target="" title="" linktype="internal" text="See what's new" url="/industry-verticals/forma-lux/Home" />
+      Value: 
 - Language: "es-ES"
   Versions:
   - Version: 1

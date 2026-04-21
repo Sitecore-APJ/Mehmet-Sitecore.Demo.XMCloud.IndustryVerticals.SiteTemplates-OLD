@@ -30,17 +30,17 @@ Languages:
     - ID: "68c2a603-f98e-42a3-be2d-dd70598c2a63"
       Hint: Link
       Value: |
-        <link linktype="external" url="" target="" text="Chair" title="" class=""/>
+        <link linktype="external" url="www.example.com" text="Timetable"/>
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "089a9f59-7dee-48fd-b842-31a64feabd78"
+      Value: "0c535226-a515-4758-8958-34c7532a3243"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\jeral.sandeeptha@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20250827T163014Z
+      Value: 20260415T120028Z
 - Language: "es-ES"
   Versions:
   - Version: 1

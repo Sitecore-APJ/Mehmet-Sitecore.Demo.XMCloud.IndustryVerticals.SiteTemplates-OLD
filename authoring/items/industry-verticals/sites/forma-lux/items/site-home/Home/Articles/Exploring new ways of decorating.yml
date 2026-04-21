@@ -18,11 +18,11 @@ SharedFields:
 - ID: "61dfb6ba-1cd3-42ec-97d7-75ca2522920c"
   Hint: ogImage
   Value: |
-    <Image src="https://starter-verticals-v2.sitecoresandbox.cloud/api/public/content/7d47dd451de24790a46823555784640e?v=ade05f1a" dam-id="NsFpWqd3RVKMXignC81wqA" width="3000" height="2499" alt="Rectangle 68.jpg" dam-content-type="Image" thumbnailsrc="https://starter-verticals-v2.sitecoresandbox.cloud/api/gateway/67032/thumbnail" />
+    <Image src="https://starter-verticals-2.sitecoresandbox.cloud/api/public/content/7d47dd451de24790a46823555784640e?v=ade05f1a" dam-id="NsFpWqd3RVKMXignC81wqA" width="3000" height="2499" alt="Rectangle 68.jpg" dam-content-type="Image" thumbnailsrc="https://starter-verticals-2.sitecoresandbox.cloud/api/gateway/67032/thumbnail" />
 - ID: "7f7ef9d5-f278-4bfe-94fb-c4be7894feb5"
   Hint: Image
   Value: |
-    <Image src="https://starter-verticals-v2.sitecoresandbox.cloud/api/public/content/7d47dd451de24790a46823555784640e?v=ade05f1a" dam-id="NsFpWqd3RVKMXignC81wqA" width="3000" height="2499" alt="Rectangle 68.jpg" dam-content-type="Image" thumbnailsrc="https://starter-verticals-v2.sitecoresandbox.cloud/api/gateway/67032/thumbnail" />
+    <image mediaid="8122362e-32f5-4b91-aee6-d859dbab3116" />
 - ID: "ba3f86a2-4a1c-4d78-b63d-91c2779c1b5e"
   Hint: __Sortorder
   Value: 75
@@ -32,7 +32,7 @@ SharedFields:
     <image mediaid="{CA876165-A479-43B2-B49A-87A39308EA66}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "18dc7f8d-a94c-4f1a-aa5b-c7eda279357d"
+  Value: "1dc56a01-8771-4c8a-8ffa-fee78d714e67"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -56,10 +56,10 @@ Languages:
   Fields:
   - ID: "30e85e5d-e00a-4864-b358-7624d511deb4"
     Hint: __Unversioned revision
-    Value: "39f593d5-4c17-493e-a754-44869cdb391e"
+    Value: "e3ab79d4-1571-45e9-ac81-3d7fe7708e13"
   - ID: "b5e02ad9-d56f-4c41-a065-a133db87bdeb"
     Hint: __Display name
-    Value: Exploring new ways of decorating
+    Value: "Real skills, real confidence: the benefits of hands-on learning"
   Versions:
   - Version: 1
     Fields:
@@ -68,7 +68,17 @@ Languages:
       Value: <r />
     - ID: "04bf00db-f5fb-41f7-8ab7-22408372a981"
       Hint: __Final Renderings
-      Value: 
+      Value: |
+        <r xmlns:p="p" xmlns:s="s"
+          p:p="1">
+          <d
+            id="{FE5D7FDF-89C0-4D99-9AA3-B5FBD009C9F3}">
+            <r
+              uid="{DACD9F81-BE69-44D3-BC1F-5F19C2BD4964}">
+              <p:d />
+            </r>
+          </d>
+        </r>
     - ID: "17b75967-9b67-4eb9-bb35-bbe0228ca368"
       Hint: pageSummary
       Value: Forma Lux invites you to rethink how rooms come to life. Exploring New Ways of Decorating examines design as conversation—between structure and softness, heritage and innovation. Sculptural lighting, driftwood textures, and artisan pottery ground the space in tactile beauty, while thoughtful restraint keeps every detail purposeful. This article celebrates interiors not as static displays, but as evolving expressions of craftsmanship, emotion, and modern harmony.
@@ -77,7 +87,7 @@ Languages:
       Value: 20250917T090300Z
     - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
       Hint: NavigationTitle
-      Value: Exploring new ways of decorating
+      Value: "Real skills, real confidence: the benefits of hands-on learning "
     - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
       Hint: __Owner
       Value: |
@@ -85,27 +95,30 @@ Languages:
     - ID: "56a52337-177b-46b4-ae72-6b9083bb6700"
       Hint: Content
       Value: |
-        <figure class="image image_resized image-style-align-right" style="width:42.48%;"><img class="image_resized" style="aspect-ratio:520/282;" src="-/media/949C1CB9D30246B0AB197E5E2F4B611C.ashx" alt="pexels-vecislavas-popa-1571453 1" width="520" height="282" /></figure><h3>Statement Pieces That Spark Conversation</h3><p>A suspended iron light fixture draws the eye, hovering above a low-profile coffee table crafted from driftwood. Nearby, a sculptural bookshelf holds a curated mix of art, plants, and ceramics, offering both function and flair.</p><p>It is a well-thought-out layout that naturally guides the eye through the room. Every design element—whether structural or decorative—feels intentional, contributing to the room’s harmonious vibe. A neutral palette dominates, but touches of terracotta and navy add personality without overwhelming the senses. Artisanal details, like hand-thrown pottery and textured wall panels, infuse warmth and authenticity.</p><p>It is a well-thought-out layout that naturally guides the eye through the room. Every design element—whether structural or decorative—feels intentional, contributing to the room’s harmonious vibe. A neutral palette dominates, but touches of terracotta and navy add personality without overwhelming the senses. Artisanal details, like hand-thrown pottery and textured wall panels, infuse warmth and authenticity.</p><figure class="image image_resized image-style-align-right" style="width:42.48%;"><img class="image_resized" style="aspect-ratio:520/282;" src="-/media/949C1CB9D30246B0AB197E5E2F4B611C.ashx" alt="pexels-vecislavas-popa-1571453 1" width="520" height="282" /></figure><h3>Statement Pieces That Spark Conversation</h3><p>A suspended iron light fixture draws the eye, hovering above a low-profile coffee table crafted from driftwood. Nearby, a sculptural bookshelf holds a curated mix of art, plants, and ceramics, offering both function and flair.</p><p>It is a well-thought-out layout that naturally guides the eye through the room. Every design element—whether structural or decorative—feels intentional, contributing to the room’s harmonious vibe. A neutral palette dominates, but touches of terracotta and navy add personality without overwhelming the senses. Artisanal details, like hand-thrown pottery and textured wall panels, infuse warmth and authenticity.</p><p>It is a well-thought-out layout that naturally guides the eye through the room. Every design element—whether structural or decorative—feels intentional, contributing to the room’s harmonious vibe. A neutral palette dominates, but touches of terracotta and navy add personality without overwhelming the senses. Artisanal details, like hand-thrown pottery and textured wall panels, infuse warmth and authenticity.</p>
+        <div class="ck-content"><p>If you’re working towards a new job, aiming to progress in your career or wanting to build new skills, the way you learn really matters. We all know that study comes with a certain amount of theory. While that foundation information is important, research shows that hands-on learning can deepen understanding and prepare you for the workplace sooner [1].</p><p>When students apply knowledge in real settings, ideas become clearer, confidence grows, and stepping into work feels more achievable.</p><p>In this article, we explore how hands-on learning supports three key areas of growth: stronger learning outcomes, practical job readiness and personal development.</p><p>Learning benefits: when doing strengthens understanding<br />Traditional classroom lessons absolutely have their place. But when you combine them with practical, hands-on experience, learning becomes deeper, and far more likely to stick.</p><p>Research tells us that no matter what a person's learning style is, applying the knowledge we’ve learned is crucial [2].</p><p>Better knowledge retention<br />Studies show &nbsp;that learners retain more information when they actively engage in tasks rather than passively listen. One report suggests that active learners retain 93.5% of information, compared to 79% for passive learners . That’s a huge difference – and one that supports what many students already know instinctively: doing helps ideas “click”, [3, 4]</p><p>Stronger problem-solving and critical thinking<br />We all know how important problem-solving and critical thinking skills are these days. You hear about them everywhere – from employers, job ads, even at school. That’s because the modern workplace changes quickly, and people who can adapt, troubleshoot and think on their feet tend to thrive.</p><p>When you work with real materials, tools or simulated workplace environments, you often face unpredictable situations. Maybe a tool isn’t behaving the way it should, or a recipe doesn’t turn out right. These situations force you to make decisions, test ideas, adjust your approach and keep trying – all critical thinking behaviours[5].</p><p>Greater engagement and motivation<br />Students are more likely to participate, stay focused and keep going when they can see how what they’re learning will actually be used. This is supported by research, which shows that practical, hands-on learning encourages stronger engagement and persistence [6].</p><p>There’s also something powerful about trying a task, working through it and eventually getting it right. That sense of accomplishment builds confidence over time and makes learning feel rewarding.</p><p>Practical benefits: preparing students for real-world work<br />One of the biggest advantages of hands-on learning is how naturally it prepares you for the workplace. By practising tasks and techniques in safe, supportive environments, you can refine your skills and understand the realities of a job.</p><p>Engaging with real tools, real equipment and real scenarios also helps build the interpersonal skills employers consistently ask for: communication, teamwork, adaptability and professional judgement.</p></div>
     - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
       Hint: __Created by
       Value: |
         sitecore\sanduni.galagoda@sitecore.com
     - ID: "62c99938-d40e-4878-ab77-3464abd79fd5"
       Hint: ShortDescription
-      Value: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mus mauris vitae ultricies leo integer malesuada nunc. In nulla posuere sollicitudin aliquam ultrices. Morbi blandit cursus risus at ultrices mi tempus imperdiet. Libero enim sed faucibus turpis in. Cursus mattis molestie a iaculis at erat. Nibh cras pulvinar mattis nunc sed blandit libero. Pellentesque elit ullamcorper dignissim cras tincidunt. Pharetra et ultrices neque ornare aenean euismod elementum.
+      Value: |
+        Discover how practical training and real-world connections, combined with the theory you need, can impact you – for the better.
+        
+        
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "902d5897-71b9-4c9a-9091-cc0928b24384"
+      Value: "fd5dbcbe-547b-4e4c-bb37-06e73f0a37dd"
     - ID: "9c8beb3d-e162-4540-bb7d-9504db078f44"
       Hint: Title
-      Value: Exploring new ways of decorating
+      Value: "Real skills, real confidence: the benefits of hands-on learning "
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20260129T163936Z
+      Value: 20260415T120202Z
     - ID: "e4df8bb9-c0d9-475d-92b4-dcb526bd6b38"
       Hint: metadataTitle
       Value: Exploring New Ways of Decorating | Forma Lux Journal – Modern Perspectives on Interior Design

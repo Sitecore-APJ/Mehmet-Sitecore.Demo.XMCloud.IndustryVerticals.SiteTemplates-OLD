@@ -5,6 +5,8 @@ import { useI18n } from 'next-localization';
 import type { JSX } from 'react';
 import type { ComponentProps } from '@/lib/component-props';
 import { Text, type TextField } from '@sitecore-content-sdk/nextjs';
+import { plainFromTextField } from '@/helpers/sitecoreHydrationSafe';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 
 export type ContactFormProps = ComponentProps & {
   params: { [key: string]: string };
@@ -14,6 +16,7 @@ export type ContactFormProps = ComponentProps & {
 };
 
 export default function ContactForm(props: ContactFormProps): JSX.Element {
+  const isEditing = useHydrationSafeEditing();
   const { t } = useI18n();
   const { styles, RenderingIdentifier: id } = props.params;
 
@@ -110,7 +113,7 @@ export default function ContactForm(props: ContactFormProps): JSX.Element {
               type="submit"
               className="arrow-btn inline-flex cursor-pointer items-center gap-2"
             >
-              <Text field={SubmitText} />
+              {isEditing ? <Text field={SubmitText} /> : plainFromTextField(SubmitText)}
             </button>
           </div>
         </form>

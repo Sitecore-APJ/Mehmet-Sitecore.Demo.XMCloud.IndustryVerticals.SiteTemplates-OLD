@@ -1,5 +1,9 @@
+'use client';
+
+import { plainFromTextField } from '@/helpers/sitecoreHydrationSafe';
 import React from 'react';
 import { Link as ContentSdkLink, Text, LinkField, TextField } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { ComponentProps } from 'lib/component-props';
 
 interface LinkListProps extends ComponentProps {
@@ -52,6 +56,7 @@ const LinkListItem = ({
 };
 
 export const Default = ({ params, fields }: LinkListProps) => {
+  const isEditing = useHydrationSafeEditing();
   const datasource = fields?.data?.datasource;
   const styles = `component link-list ${params.styles || ''}`.trim();
   const id = params.RenderingIdentifier;
@@ -74,7 +79,11 @@ export const Default = ({ params, fields }: LinkListProps) => {
 
     return (
       <>
-        <Text tag="h3" field={datasource.field?.title} />
+        {isEditing ? (
+          <Text tag="h3" field={datasource.field?.title} />
+        ) : (
+          <h3>{plainFromTextField(datasource.field?.title)}</h3>
+        )}
         <ul>{links}</ul>
       </>
     );

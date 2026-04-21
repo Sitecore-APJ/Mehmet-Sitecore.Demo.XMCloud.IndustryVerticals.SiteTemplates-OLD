@@ -32,17 +32,17 @@ Languages:
     - ID: "68c2a603-f98e-42a3-be2d-dd70598c2a63"
       Hint: Link
       Value: |
-        <link linktype="external" url="" target="" text="Branding" title="" class=""/>
+        <link linktype="external" url="www" text="Feedback"/>
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "74bb919c-f0b1-4e89-9bc6-14384d274dce"
+      Value: "ac67fac7-7232-4339-b0ac-37dc295c3c66"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\isuru.bandara@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251201T110540Z
+      Value: 20260415T120148Z
 - Language: "es-ES"
   Versions:
   - Version: 1

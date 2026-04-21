@@ -27,17 +27,17 @@ Languages:
         sitecore\ranula.gamage@sitecore.com
     - ID: "73961b41-7cfe-4909-9593-1a695e998e38"
       Hint: Title
-      Value: Subscribe to get attractive offers on our products
+      Value: Stay in touch
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "c122940b-3f51-42d4-8aa1-2ae989238546"
+      Value: "d8d19a11-f012-4249-a90e-ec90d4c33c8a"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20250910T093959Z
+      Value: 20260415T115618Z
 - Language: "es-ES"
   Versions:
   - Version: 1

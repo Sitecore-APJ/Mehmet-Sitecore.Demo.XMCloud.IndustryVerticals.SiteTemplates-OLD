@@ -1,3 +1,6 @@
+'use client';
+
+import { plainFromTextField, richTextHtml } from '@/helpers/sitecoreHydrationSafe';
 import { useState } from 'react';
 import { useI18n } from 'next-localization';
 import { Product } from '@/types/products';
@@ -54,10 +57,17 @@ export const ProductTabs = ({ product, isPageEditing, rendering }: ProductTabsPr
         <div className="w-full max-w-6xl px-2 py-2 text-center text-sm sm:px-6 sm:text-base">
           <div className={activeTab === 'description' ? '' : 'hidden'}>
             {product?.LongDescription?.value || isPageEditing ? (
-              <ContentSdkRichText
-                field={product.LongDescription}
-                className="mx-auto max-w-none text-justify"
-              />
+              isPageEditing ? (
+                <ContentSdkRichText
+                  field={product.LongDescription}
+                  className="mx-auto max-w-none text-justify"
+                />
+              ) : (
+                <div
+                  className="mx-auto max-w-none text-justify"
+                  dangerouslySetInnerHTML={{ __html: richTextHtml(product.LongDescription) }}
+                />
+              )
             ) : (
               <p className="text-center">
                 {t('no_description_text') || 'No description available'}
@@ -73,7 +83,11 @@ export const ProductTabs = ({ product, isPageEditing, rendering }: ProductTabsPr
                     <>
                       <dt>{t('width_label') || 'Width'}</dt>
                       <dd className="text-right">
-                        <ContentSdkText field={product.Width} />
+                        {isPageEditing ? (
+                          <ContentSdkText field={product.Width} />
+                        ) : (
+                          plainFromTextField(product.Width)
+                        )}
                       </dd>
                     </>
                   )}
@@ -82,7 +96,11 @@ export const ProductTabs = ({ product, isPageEditing, rendering }: ProductTabsPr
                     <>
                       <dt>{t('height_label') || 'Height'}</dt>
                       <dd className="text-right">
-                        <ContentSdkText field={product.Height} />
+                        {isPageEditing ? (
+                          <ContentSdkText field={product.Height} />
+                        ) : (
+                          plainFromTextField(product.Height)
+                        )}
                       </dd>
                     </>
                   )}
@@ -91,7 +109,11 @@ export const ProductTabs = ({ product, isPageEditing, rendering }: ProductTabsPr
                     <>
                       <dt>{t('depth_label') || 'Depth'}</dt>
                       <dd className="text-right">
-                        <ContentSdkText field={product.Depth} />
+                        {isPageEditing ? (
+                          <ContentSdkText field={product.Depth} />
+                        ) : (
+                          plainFromTextField(product.Depth)
+                        )}
                       </dd>
                     </>
                   )}
@@ -100,7 +122,11 @@ export const ProductTabs = ({ product, isPageEditing, rendering }: ProductTabsPr
                     <>
                       <dt>{t('weight_label') || 'Weight'}</dt>
                       <dd className="text-right">
-                        <ContentSdkText field={product.Weight} />
+                        {isPageEditing ? (
+                          <ContentSdkText field={product.Weight} />
+                        ) : (
+                          plainFromTextField(product.Weight)
+                        )}
                       </dd>
                     </>
                   )}
@@ -109,7 +135,11 @@ export const ProductTabs = ({ product, isPageEditing, rendering }: ProductTabsPr
                     <>
                       <dt>{t('seat_height_label') || 'Seat Height'}</dt>
                       <dd className="text-right">
-                        <ContentSdkText field={product.SeatHeight} />
+                        {isPageEditing ? (
+                          <ContentSdkText field={product.SeatHeight} />
+                        ) : (
+                          plainFromTextField(product.SeatHeight)
+                        )}
                       </dd>
                     </>
                   )}
@@ -118,7 +148,11 @@ export const ProductTabs = ({ product, isPageEditing, rendering }: ProductTabsPr
                     <>
                       <dt>{t('leg_height_label') || 'Leg Height'}</dt>
                       <dd className="text-right">
-                        <ContentSdkText field={product.LegHeight} />
+                        {isPageEditing ? (
+                          <ContentSdkText field={product.LegHeight} />
+                        ) : (
+                          plainFromTextField(product.LegHeight)
+                        )}
                       </dd>
                     </>
                   )}

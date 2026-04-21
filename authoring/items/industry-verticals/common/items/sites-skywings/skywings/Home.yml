@@ -8,14 +8,14 @@ SharedFields:
 - ID: "25f9b35b-0c2c-4f43-ae2f-1d30eb1f2b6b"
   Hint: ogImage
   Value: |
-    <Image src="https://starter-verticals-v2.sitecoresandbox.cloud/api/public/content/b63df08870704e0cb033db26268c16e2?v=fe4cae95" dam-id="_ycc3UWXQkCF0eqrdHdGsw" width="150" height="31" alt="SkyWingsLogo.png" dam-content-type="Other" thumbnailsrc="https://starter-verticals-v2.sitecoresandbox.cloud/api/gateway/79127/thumbnail" />
+    <Image src="https://starter-verticals.sitecoresandbox.cloud/api/public/content/b63df08870704e0cb033db26268c16e2?v=fe4cae95" dam-id="_ycc3UWXQkCF0eqrdHdGsw" width="150" height="31" alt="SkyWingsLogo.png" dam-content-type="Other" thumbnailsrc="https://starter-verticals.sitecoresandbox.cloud/api/gateway/79127/thumbnail" />
 - ID: "c7c26117-dbb1-42b2-ab5e-f7223845cca3"
   Hint: __Thumbnail
   Value: |
     <image mediaid="{6982D63B-8FE0-4FA7-A75D-3B0319D4B957}" />
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "8dd38b10-ba70-45cf-8bcc-cec4acd71f22"
+  Value: "5fe5f629-5733-42c0-a74b-192e3d4b5978"
 - ID: "f1a1fe9e-a60c-4ddb-a3a0-bb5b29fe732e"
   Hint: __Renderings
   Value: |
@@ -180,11 +180,103 @@ Languages:
       Value: Discover destinations, plan trips, and experience cultural travel with Skywings. Explore inspiring locations, manage your journeys, and embrace travel that connects you to the world.
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "08fc38e5-15bb-4503-a9b5-8b21fb322323"
+      Value: "9363d0bf-8348-48d7-b4a8-2ecc9b0e6bc7"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\tharuka.bandara@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20260129T145207Z
+      Value: 20251229T145532Z
+- Language: "es-ES"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "13fe722e-a8c7-4432-a983-23fb28ffab05"
+      Hint: metadataKeywords
+      Value: Skywings, viajar, reservar vuelos, destinos de viaje, viaje cultural, planificación de viajes, explorar el mundo, experiencias de viaje
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20251210T131537Z
+    - ID: "32c603c2-c858-4138-8fcb-8e18a5ad8240"
+      Hint: metadataTitle
+      Value: Skywings | Explora el mundo con viajes significativos
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: $name
+    - ID: "4ff91248-33ab-4254-b6f7-2618fd0aebae"
+      Hint: Title
+      Value: Vuela hacia tus sueños
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\neli.kostadinova@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\neli.kostadinova@sitecore.com
+    - ID: "6b43d550-6d5f-46ce-ac84-3d9493c45bc6"
+      Hint: metadataDescription
+      Value: Descubre destinos, planifica viajes y experimenta el viaje cultural con Skywings. Explora lugares inspiradores, gestiona tus viajes y abraza el viaje que te conecta con el mundo.
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "90cf75d9-7e00-4824-b3ee-7a29dfde7f0b"
+    - ID: "9857f526-390f-48df-b6d1-1a97cc328e8f"
+      Hint: __Version Name
+      Value: AI translated
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\mehmet.vanli@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260114T002922Z
+- Language: "fr-FR"
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "001dd393-96c5-490b-924a-b0f25cd9efd8"
+      Hint: __Lock
+      Value: <r />
+    - ID: "13fe722e-a8c7-4432-a983-23fb28ffab05"
+      Hint: metadataKeywords
+      Value: Skywings, voyage, réserver des vols, destinations de voyage, voyage culturel, planification de voyage, explorer le monde, expériences de voyage
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20251210T131537Z
+    - ID: "32c603c2-c858-4138-8fcb-8e18a5ad8240"
+      Hint: metadataTitle
+      Value: Skywings | Explorez le monde avec des voyages significatifs
+    - ID: "4e0720e9-9d50-4ddc-87cf-ecd65e8e94c8"
+      Hint: NavigationTitle
+      Value: $name
+    - ID: "4ff91248-33ab-4254-b6f7-2618fd0aebae"
+      Hint: Title
+      Value: Volez vers vos rêves
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\neli.kostadinova@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\neli.kostadinova@sitecore.com
+    - ID: "6b43d550-6d5f-46ce-ac84-3d9493c45bc6"
+      Hint: metadataDescription
+      Value: Découvrez des destinations, planifiez des voyages et vivez des expériences culturelles avec Skywings. Explorez des lieux inspirants, gérez vos voyages et embrassez un voyage qui vous connecte au monde.
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "bbd7f722-9a2a-4eb8-9d8e-ac5260281761"
+    - ID: "9857f526-390f-48df-b6d1-1a97cc328e8f"
+      Hint: __Version Name
+      Value: AI translated
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\mehmet.vanli@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260114T002920Z

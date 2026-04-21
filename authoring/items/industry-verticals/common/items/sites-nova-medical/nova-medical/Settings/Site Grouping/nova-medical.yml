@@ -43,7 +43,7 @@ SharedFields:
   Value: *
 - ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
   Hint: __Shared revision
-  Value: "ccffafd5-992d-43c9-8ab4-27e44d80f364"
+  Value: "326e1c74-4d61-4c92-bed5-c4a20b9300b2"
 - ID: "f57099a3-526a-49f2-aebd-635453e48875"
   Hint: RenderingHost
   Value: healthcare
@@ -68,11 +68,11 @@ Languages:
         sitecore\movin.tilakaratne@sitecore.com
     - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
       Hint: __Revision
-      Value: "a6a6a851-807f-4225-8688-0995bac2c9f6"
+      Value: "2a478b7b-5bfe-4b6e-8001-29c986fee04f"
     - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
       Hint: __Updated by
       Value: |
-        sitecore\ranula.gamage@sitecore.com
+        sitecore\mehmet.vanli@sitecore.com
     - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
       Hint: __Updated
-      Value: 20251113T065722Z
+      Value: 20260107T220912Z

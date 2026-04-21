@@ -1,13 +1,15 @@
+'use client';
+
+import { plainFromTextField, SitecoreOrNativeImage } from '@/helpers/sitecoreHydrationSafe';
 import {
   Field,
   ImageField,
   RichTextField,
-  NextImage as ContentSdkImage,
   Text as ContentSdkText,
   DateField,
   Placeholder,
-  useSitecore,
 } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faCalendar, faTag } from '@fortawesome/free-solid-svg-icons';
@@ -44,11 +46,10 @@ interface ArticleListingProps extends ComponentProps {
 
 export const Default = (props: ArticleListingProps) => {
   const { t } = useI18n();
-  const { page } = useSitecore();
   const id = props.params.RenderingIdentifier;
   const searchBarPlaceholderKey = `article-listing-search-bar-${props.params.DynamicPlaceholderId}`;
   const recentPostsPlaceholderKey = `article-listing-side-bar-${props.params.DynamicPlaceholderId}`;
-  const isPageEditing = page.mode.isEditing;
+  const isPageEditing = useHydrationSafeEditing();
 
   // sort by latest published
   const articles = props.fields?.items
@@ -87,89 +88,116 @@ export const Default = (props: ArticleListingProps) => {
       <div className="container grid grid-cols-1 gap-12 lg:grid-cols-[3fr_1fr]">
         {/* Left column */}
         <div className="space-y-16">
-          {paginatedArticles.map((article) => (
-            <article key={article.id} className="space-y-4">
-              {/* Image */}
-              <div className="relative aspect-3/2 w-full overflow-hidden rounded-lg md:aspect-9/4">
-                <ContentSdkImage
-                  field={article.fields?.Image}
-                  className="h-full w-full object-cover"
-                />
-              </div>
+          {paginatedArticles.map((article) => {
+            const publishedDateRaw = article.fields?.PublishedDate?.value;
+            const hasValidDate = !!(
+              publishedDateRaw && !publishedDateRaw.startsWith('0001-01-01')
+            );
 
-              {/* Content */}
-              <div className="space-y-3">
-                <ContentSdkText
-                  field={article.fields?.Title}
-                  tag="h3"
-                  className="font-semibold transition-colors"
-                />
-
-                {/* Icons */}
-                <div className="text-foreground-light flex items-center gap-10 text-xs sm:text-sm">
-                  {/* Author */}
-                  {(article.fields?.Author?.fields?.AuthorName?.value || isPageEditing) && (
-                    <span className="flex items-center gap-2">
-                      <FontAwesomeIcon icon={faUser as IconProp} />
-                      <ContentSdkText field={article.fields?.Author?.fields?.AuthorName} />
-                    </span>
-                  )}
-
-                  {/* Published Date */}
-                  {(() => {
-                    const publishedDate = article.fields?.PublishedDate?.value;
-                    const hasValidDate = publishedDate && !publishedDate.startsWith('0001-01-01');
-
-                    if (!hasValidDate && !isPageEditing) {
-                      return null;
-                    }
-
-                    return (
-                      <span className="flex items-center gap-2">
-                        {hasValidDate && (
-                          <>
-                            <FontAwesomeIcon icon={faCalendar as IconProp} />
-                            <DateField
-                              field={article.fields?.PublishedDate}
-                              render={(date) =>
-                                date
-                                  ? new Date(date).toLocaleDateString('en-GB', {
-                                      day: '2-digit',
-                                      month: 'short',
-                                      year: 'numeric',
-                                    })
-                                  : null
-                              }
-                            />
-                          </>
-                        )}
-                      </span>
-                    );
-                  })()}
-
-                  {/* Category */}
-                  {(article.fields?.Category?.fields?.Category?.value || isPageEditing) && (
-                    <span className="flex items-center gap-2">
-                      <FontAwesomeIcon icon={faTag as IconProp} />
-                      <ContentSdkText field={article.fields?.Category?.fields?.Category} />
-                    </span>
+            return (
+              <article key={article.id} className="space-y-4">
+                <div className="relative aspect-3/2 w-full overflow-hidden rounded-lg md:aspect-9/4">
+                  {article.fields?.Image && (
+                    <SitecoreOrNativeImage
+                      field={article.fields.Image}
+                      isEditing={isPageEditing}
+                      className="h-full w-full object-cover"
+                    />
                   )}
                 </div>
 
-                {/* Short Description */}
-                <ContentSdkText
-                  field={article.fields?.ShortDescription}
-                  tag="p"
-                  className="line-clamp-5 text-justify text-lg"
-                />
+                <div className="space-y-3">
+                  {isPageEditing ? (
+                    <ContentSdkText
+                      field={article.fields?.Title}
+                      tag="h3"
+                      className="font-semibold transition-colors"
+                    />
+                  ) : (
+                    <h3 className="font-semibold transition-colors">
+                      {plainFromTextField(article.fields?.Title)}
+                    </h3>
+                  )}
 
-                {/* Read More Button */}
-                <Link href={article.url} className="arrow-btn" aria-label="Read full article">
-                  {t('read_more_btn_text') || 'Read More'}
-                </Link>
-              </div>
-            </article>
-          ))}
+                  <div className="text-foreground-light flex items-center gap-10 text-xs sm:text-sm">
+                    {(article.fields?.Author?.fields?.AuthorName?.value || isPageEditing) && (
+                      <span className="flex items-center gap-2">
+                        <FontAwesomeIcon icon={faUser as IconProp} />
+                        {isPageEditing ? (
+                          <ContentSdkText
+                            field={article.fields?.Author?.fields?.AuthorName}
+                            tag="span"
+                            className="text-inherit"
+                          />
+                        ) : (
+                          plainFromTextField(article.fields?.Author?.fields?.AuthorName)
+                        )}
+                      </span>
+                    )}
+
+                    {(hasValidDate || isPageEditing) && (
+                      <span className="flex items-center gap-2">
+                        <FontAwesomeIcon icon={faCalendar as IconProp} />
+                        {isPageEditing ? (
+                          <DateField
+                            field={article.fields?.PublishedDate}
+                            render={(date) =>
+                              date
+                                ? new Date(date).toLocaleDateString('en-GB', {
+                                    day: '2-digit',
+                                    month: 'short',
+                                    year: 'numeric',
+                                  })
+                                : null
+                            }
+                          />
+                        ) : hasValidDate ? (
+                          <span suppressHydrationWarning>
+                            {new Date(publishedDateRaw as string).toLocaleDateString('en-GB', {
+                              day: '2-digit',
+                              month: 'short',
+                              year: 'numeric',
+                            })}
+                          </span>
+                        ) : null}
+                      </span>
+                    )}
+
+                    {(article.fields?.Category?.fields?.Category?.value || isPageEditing) && (
+                      <span className="flex items-center gap-2">
+                        <FontAwesomeIcon icon={faTag as IconProp} />
+                        {isPageEditing ? (
+                          <ContentSdkText
+                            field={article.fields?.Category?.fields?.Category}
+                            tag="span"
+                            className="text-inherit"
+                          />
+                        ) : (
+                          plainFromTextField(article.fields?.Category?.fields?.Category)
+                        )}
+                      </span>
+                    )}
+                  </div>
+
+                  {isPageEditing ? (
+                    <ContentSdkText
+                      field={article.fields?.ShortDescription}
+                      tag="p"
+                      className="line-clamp-5 text-justify text-lg"
+                    />
+                  ) : (
+                    <p className="line-clamp-5 text-justify text-lg">
+                      {plainFromTextField(article.fields?.ShortDescription)}
+                    </p>
+                  )}
+
+                  <Link href={article.url} className="arrow-btn" aria-label="Read full article">
+                    {t('read_more_btn_text') || 'Read More'}
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
 
           {/* Pagination */}
           <Pagination

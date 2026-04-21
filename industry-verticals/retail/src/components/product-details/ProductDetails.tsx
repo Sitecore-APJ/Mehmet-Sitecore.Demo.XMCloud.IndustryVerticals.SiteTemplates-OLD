@@ -1,4 +1,5 @@
 import { Placeholder, useSitecore } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { useEffect, useState } from 'react';
 import { ComponentProps } from '@/lib/component-props';
 import { Heart, Plus } from 'lucide-react';
@@ -25,7 +26,7 @@ export const Default = (props: ProductDetailsProps) => {
 
   const id = props?.params?.RenderingIdentifier;
   const styles = `${props?.params?.styles || ''}`.trim();
-  const isPageEditing = page.mode.isEditing;
+  const isPageEditing = useHydrationSafeEditing();
 
   const product = props?.fields;
   const productId = page.layout.sitecore.route?.itemId;

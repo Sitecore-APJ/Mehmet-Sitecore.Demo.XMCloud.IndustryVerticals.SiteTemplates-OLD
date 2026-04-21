@@ -1,4 +1,8 @@
-import { Text as ContentSdkText, useSitecore } from '@sitecore-content-sdk/nextjs';
+'use client';
+
+import { plainFromTextField } from '@/helpers/sitecoreHydrationSafe';
+import { Text as ContentSdkText } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { Product } from '@/types/products';
 import StarRating from '../non-sitecore/StarRating';
 import { useLocale } from '@/hooks/useLocaleOptions';
@@ -9,8 +13,7 @@ interface ProductDescriptionProps {
 }
 
 export const ProductDescription = ({ product }: ProductDescriptionProps) => {
-  const { page } = useSitecore();
-  const isPageEditing = page.mode.isEditing;
+  const isPageEditing = useHydrationSafeEditing();
   const { currency } = useLocale();
 
   const reviews = product?.Reviews || [];
@@ -20,12 +23,21 @@ export const ProductDescription = ({ product }: ProductDescriptionProps) => {
   return (
     <>
       <h1 className="pt-3 text-4xl font-bold lg:pt-0">
-        <ContentSdkText field={product.Title} />
+        {isPageEditing ? (
+          <ContentSdkText field={product.Title} />
+        ) : (
+          plainFromTextField(product.Title)
+        )}
       </h1>
 
       {(product?.Price?.value || isPageEditing) && (
         <p className="text-xl">
-          {currency} <ContentSdkText field={product.Price} />
+          {currency}{' '}
+          {isPageEditing ? (
+            <ContentSdkText field={product.Price} />
+          ) : (
+            plainFromTextField(product.Price)
+          )}
         </p>
       )}
 
@@ -42,7 +54,11 @@ export const ProductDescription = ({ product }: ProductDescriptionProps) => {
 
       {(product?.ShortDescription?.value || isPageEditing) && (
         <p className="text-foreground text-lg">
-          <ContentSdkText field={product.ShortDescription} />
+          {isPageEditing ? (
+            <ContentSdkText field={product.ShortDescription} />
+          ) : (
+            plainFromTextField(product.ShortDescription)
+          )}
         </p>
       )}
     </>

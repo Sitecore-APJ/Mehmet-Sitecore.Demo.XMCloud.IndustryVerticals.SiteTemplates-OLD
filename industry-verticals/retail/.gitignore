@@ -29,3 +29,6 @@
 
 *storybook.log
 storybook-static
+
+# local one-off crawls / downloads
+.tmp-chisholm-images/

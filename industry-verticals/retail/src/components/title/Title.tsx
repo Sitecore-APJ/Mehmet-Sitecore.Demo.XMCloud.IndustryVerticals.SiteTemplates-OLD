@@ -1,4 +1,8 @@
-import { Link, LinkField, Text, TextField, useSitecore } from '@sitecore-content-sdk/nextjs';
+'use client';
+
+import { plainFromTextField } from '@/helpers/sitecoreHydrationSafe';
+import { Link, LinkField, Text, TextField } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import React, { JSX } from 'react';
 import { ComponentProps } from 'lib/component-props';
 
@@ -41,7 +45,7 @@ const ComponentContent = ({ id, styles = '', children }: ComponentContentProps):
 );
 
 export const Default = ({ params, fields }: TitleProps): JSX.Element => {
-  const { page } = useSitecore();
+  const isEditing = useHydrationSafeEditing();
   const { styles, RenderingIdentifier: id } = params;
   const datasource = fields?.data?.datasource || fields?.data?.contextItem;
   const text: TextField = datasource?.field?.jsonValue || {};
@@ -54,12 +58,10 @@ export const Default = ({ params, fields }: TitleProps): JSX.Element => {
 
   return (
     <ComponentContent styles={styles} id={id}>
-      {page.mode.isEditing ? (
+      {isEditing ? (
         <Text field={text} />
       ) : (
-        <Link field={link}>
-          <Text field={text} />
-        </Link>
+        <Link field={link}>{plainFromTextField(text)}</Link>
       )}
     </ComponentContent>
   );

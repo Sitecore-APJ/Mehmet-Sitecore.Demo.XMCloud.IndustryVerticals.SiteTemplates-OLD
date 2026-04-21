@@ -1,11 +1,14 @@
+'use client';
+
+import { plainFromTextField } from '@/helpers/sitecoreHydrationSafe';
 import { ComponentProps } from '@/lib/component-props';
 import {
   ComponentParams,
   ComponentRendering,
   Text,
   TextField,
-  useSitecore,
 } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
@@ -26,15 +29,13 @@ interface ReviewsProps extends ComponentProps {
 }
 
 export const Default = (props: ReviewsProps) => {
-  const { page } = useSitecore();
-
   const id = props.params.RenderingIdentifier;
   const uid = props.rendering.uid;
   const reviews = props.fields?.Reviews || [];
-  const sectionTitle = props.fields?.Title || '';
-  const sectionEyebrow = props.fields?.Eyebrow || '';
+  const sectionTitle = props.fields?.Title;
+  const sectionEyebrow = props.fields?.Eyebrow;
   const styles = `${props.params.styles || ''}`.trim();
-  const isPageEditing = page.mode.isEditing;
+  const isPageEditing = useHydrationSafeEditing();
   const hideAccentLine = styles?.includes(CommonStyles.HideAccentLine);
 
   return (
@@ -43,11 +44,19 @@ export const Default = (props: ReviewsProps) => {
         {/* Heading Section */}
         <div className="text-center">
           <p className="eyebrow pb-4">
-            <Text field={sectionEyebrow} />
+            {isPageEditing ? (
+              <Text field={sectionEyebrow} />
+            ) : (
+              plainFromTextField(sectionEyebrow)
+            )}
           </p>
           <div className="flex flex-col items-center justify-center gap-2">
             <h2 className="inline-block font-bold max-lg:text-5xl" aria-label="section-title">
-              <Text field={sectionTitle} />
+              {isPageEditing ? (
+                <Text field={sectionTitle} />
+              ) : (
+                plainFromTextField(sectionTitle)
+              )}
             </h2>
             <h2 className="inline-block font-bold max-lg:text-5xl" aria-label="accent-line">
               {!hideAccentLine && <AccentLine className="w-full max-w-xs" />}

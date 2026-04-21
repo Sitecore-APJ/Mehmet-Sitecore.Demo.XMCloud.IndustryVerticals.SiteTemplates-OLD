@@ -6,10 +6,15 @@ import {
   LinkField,
   Link as ContentSskLink,
   RichTextField,
-  NextImage as ContentSdkImage,
   RichText as ContentSdkRichText,
   Text,
 } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
+import {
+  plainFromTextField,
+  richTextHtml,
+  SitecoreOrNativeImage,
+} from '@/helpers/sitecoreHydrationSafe';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
@@ -32,6 +37,7 @@ export type CarouselProps = ComponentProps & {
 };
 
 export const Default = (props: CarouselProps) => {
+  const isEditing = useHydrationSafeEditing();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const id = props.params.RenderingIdentifier;
@@ -82,12 +88,20 @@ export const Default = (props: CarouselProps) => {
         >
           <div className="w-full space-y-5 md:w-1/3">
             <h2 className="inline-block max-w-md">
-              <Text field={props.fields.Title} />
+              {isEditing ? (
+                <Text field={props.fields.Title} />
+              ) : (
+                plainFromTextField(props.fields.Title)
+              )}
               {!hideAccentLine && <AccentLine className="w-full max-w-xs" />}
             </h2>
 
             <div className="max-w-md">
-              <ContentSdkRichText field={props.fields.Description} />
+              {isEditing ? (
+                <ContentSdkRichText field={props.fields.Description} />
+              ) : (
+                <div dangerouslySetInnerHTML={{ __html: richTextHtml(props.fields.Description) }} />
+              )}
             </div>
 
             <ContentSskLink field={props.fields.ExploreLink} className="arrow-btn" />
@@ -121,8 +135,9 @@ export const Default = (props: CarouselProps) => {
                           <SwiperSlide key={article.id}>
                             <Link href={article.url}>
                               <div className={`overflow-hidden rounded-lg`}>
-                                <ContentSdkImage
+                                <SitecoreOrNativeImage
                                   field={article.fields.Image}
+                                  isEditing={isEditing}
                                   className={cn(
                                     'aspect-square h-full w-full object-cover',
                                     aspectClass
@@ -137,15 +152,14 @@ export const Default = (props: CarouselProps) => {
                                       <div className="flex items-center gap-1 overflow-hidden text-xs font-extralight text-ellipsis whitespace-nowrap">
                                         <div className="h-[1px] w-7 bg-black"></div>
                                         <div className="text-foreground/75">
-                                          <Text
-                                            editable={false}
-                                            field={article.fields?.Category?.fields?.Category}
-                                          />
+                                          {plainFromTextField(
+                                            article.fields?.Category?.fields?.Category
+                                          )}
                                         </div>
                                       </div>
                                       <div>
                                         <h6 className="line-clamp-2 max-w-full overflow-hidden wrap-anywhere text-ellipsis">
-                                          <Text editable={false} field={article.fields?.Title} />
+                                          {plainFromTextField(article.fields?.Title)}
                                         </h6>
                                       </div>
                                     </div>
@@ -199,8 +213,9 @@ export const Default = (props: CarouselProps) => {
                             <SwiperSlide key={article.id}>
                               <Link href={article.url}>
                                 <div className="overflow-hidden rounded-lg">
-                                  <ContentSdkImage
+                                  <SitecoreOrNativeImage
                                     field={article.fields.Image}
+                                    isEditing={isEditing}
                                     className={`h-full w-full object-cover ${articles.length >= 3 ? 'aspect-4/5' : 'aspect-[3/1.8]'}`}
                                   />
                                 </div>

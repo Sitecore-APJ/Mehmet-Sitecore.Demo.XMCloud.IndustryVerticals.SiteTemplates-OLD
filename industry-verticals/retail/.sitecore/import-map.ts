@@ -7,7 +7,9 @@ import {
 } from '@sitecore-content-sdk/nextjs/codegen';
 // end of built-in imports
 
-import { Link, Text, useSitecore, RichText, NextImage, Placeholder, Image as Image_8a80e63291fea86e0744df19113dc44bec187216, CdpHelper, withDatasourceCheck, DateField } from '@sitecore-content-sdk/nextjs';
+import { plainFromTextField, richTextHtml, SitecoreOrNativeImage } from '@/helpers/sitecoreHydrationSafe';
+import { Link, Text, RichText, Placeholder, useSitecore, Image as Image_8a80e63291fea86e0744df19113dc44bec187216, CdpHelper, withDatasourceCheck, DateField } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { useMemo, useRef, useState, useEffect, useId, useCallback } from 'react';
 import React from 'react';
 import Head from 'next/head';
@@ -93,18 +95,31 @@ import { sortByDateDesc, getCategoryCounts } from '@/helpers/articleUtils';
 
 const importMap = [
   {
+    module: '@/helpers/sitecoreHydrationSafe',
+    exports: [
+      { name: 'plainFromTextField', value: plainFromTextField },
+      { name: 'richTextHtml', value: richTextHtml },
+      { name: 'SitecoreOrNativeImage', value: SitecoreOrNativeImage },
+    ]
+  },
+  {
     module: '@sitecore-content-sdk/nextjs',
     exports: [
       { name: 'Link', value: Link },
       { name: 'Text', value: Text },
-      { name: 'useSitecore', value: useSitecore },
       { name: 'RichText', value: RichText },
-      { name: 'NextImage', value: NextImage },
       { name: 'Placeholder', value: Placeholder },
+      { name: 'useSitecore', value: useSitecore },
       { name: 'Image', value: Image_8a80e63291fea86e0744df19113dc44bec187216 },
       { name: 'CdpHelper', value: CdpHelper },
       { name: 'withDatasourceCheck', value: withDatasourceCheck },
       { name: 'DateField', value: DateField },
+    ]
+  },
+  {
+    module: '@/hooks/useHydrationSafeEditing',
+    exports: [
+      { name: 'useHydrationSafeEditing', value: useHydrationSafeEditing },
     ]
   },
   {

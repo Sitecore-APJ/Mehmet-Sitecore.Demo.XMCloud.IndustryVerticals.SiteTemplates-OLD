@@ -1,3 +1,5 @@
+'use client';
+
 import {
   ComponentParams,
   ComponentRendering,
@@ -12,6 +14,8 @@ import {
   TextField,
 } from '@sitecore-content-sdk/nextjs';
 import React from 'react';
+import { plainFromTextField, richTextHtml, SitecoreOrNativeImage } from '@/helpers/sitecoreHydrationSafe';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 
 interface Fields {
   TitleOne: TextField;
@@ -33,10 +37,9 @@ type FooterProps = {
 };
 
 export const Default = (props: FooterProps) => {
-  // rendering item id
+  const isEditing = useHydrationSafeEditing();
   const id = props.params.RenderingIdentifier;
 
-  // placeholders keys
   const phKeyOne = `footer-list-first-${props?.params?.DynamicPlaceholderId}`;
   const phKeyTwo = `footer-list-second-${props?.params?.DynamicPlaceholderId}`;
   const phKeyThree = `footer-list-third-${props?.params?.DynamicPlaceholderId}`;
@@ -46,27 +49,47 @@ export const Default = (props: FooterProps) => {
   const sections = [
     {
       key: 'first_nav',
-      title: <Text field={props.fields.TitleOne} />,
+      title: isEditing ? (
+        <Text field={props.fields.TitleOne} />
+      ) : (
+        plainFromTextField(props.fields.TitleOne)
+      ),
       content: <Placeholder name={phKeyOne} rendering={props.rendering} />,
     },
     {
       key: 'second_nav',
-      title: <Text field={props.fields.TitleTwo} />,
+      title: isEditing ? (
+        <Text field={props.fields.TitleTwo} />
+      ) : (
+        plainFromTextField(props.fields.TitleTwo)
+      ),
       content: <Placeholder name={phKeyTwo} rendering={props.rendering} />,
     },
     {
       key: 'third_nav',
-      title: <Text field={props.fields.TitleThree} />,
+      title: isEditing ? (
+        <Text field={props.fields.TitleThree} />
+      ) : (
+        plainFromTextField(props.fields.TitleThree)
+      ),
       content: <Placeholder name={phKeyThree} rendering={props.rendering} />,
     },
     {
       key: 'fourth_nav',
-      title: <Text field={props.fields.TitleFour} />,
+      title: isEditing ? (
+        <Text field={props.fields.TitleFour} />
+      ) : (
+        plainFromTextField(props.fields.TitleFour)
+      ),
       content: <Placeholder name={phKeyFour} rendering={props.rendering} />,
     },
     {
       key: 'fifth_nav',
-      title: <Text field={props.fields.TitleFive} />,
+      title: isEditing ? (
+        <Text field={props.fields.TitleFive} />
+      ) : (
+        plainFromTextField(props.fields.TitleFive)
+      ),
       content: <Placeholder name={phKeyFive} rendering={props.rendering} />,
     },
   ];
@@ -77,9 +100,17 @@ export const Default = (props: FooterProps) => {
         <div className="container grid gap-12 py-28.5 lg:grid-cols-[1fr_3fr]">
           <div className="flex flex-col gap-7">
             <div className="sm:max-w-34">
-              <Image field={props.fields.Logo} />
+              {isEditing ? (
+                <Image field={props.fields.Logo} />
+              ) : (
+                <SitecoreOrNativeImage field={props.fields.Logo} isEditing={false} />
+              )}
             </div>
-            <RichText field={props.fields.Description} />
+            {isEditing ? (
+              <RichText field={props.fields.Description} />
+            ) : (
+              <div dangerouslySetInnerHTML={{ __html: richTextHtml(props.fields.Description) }} />
+            )}
           </div>
           <div className="grid gap-13 sm:grid-cols-3 lg:grid-cols-5 lg:gap-5 xl:gap-12">
             {sections.map(({ key, title, content }) => (
@@ -94,7 +125,11 @@ export const Default = (props: FooterProps) => {
       <div className="bg-background">
         <div className="container flex items-center justify-between py-8.5 max-sm:flex-col max-sm:items-start max-sm:gap-10">
           <div className="max-sm:order-2">
-            <Text field={props.fields.CopyrightText} />
+            {isEditing ? (
+              <Text field={props.fields.CopyrightText} />
+            ) : (
+              plainFromTextField(props.fields.CopyrightText)
+            )}
           </div>
           <div className="flex items-center justify-between gap-20 max-lg:gap-10 max-sm:order-1 max-sm:flex-col max-sm:items-start max-sm:gap-5">
             <Link field={props.fields.TermsText} className="hover:underline" />

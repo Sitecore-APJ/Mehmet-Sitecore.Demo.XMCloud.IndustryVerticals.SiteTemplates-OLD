@@ -1,6 +1,6 @@
 import { NavigationProps, NavItemFields } from '@/components/navigation/Navigation';
 import React, { JSX } from 'react';
-import { LinkField, Text } from '@sitecore-content-sdk/nextjs';
+import { LinkField, TextField } from '@sitecore-content-sdk/nextjs';
 
 export const isNavLevel = (fields: NavItemFields, level: number): boolean => {
   return Array.isArray(fields.Styles) && fields.Styles.includes(`level${level}`);
@@ -13,6 +13,15 @@ export const isNavRootItem = (fields: NavItemFields): boolean => {
   return isNavLevel(fields, 0) && !isFlatLevel;
 };
 
+/** Plain label for SSR — avoids Text component markup drift that can cause hydration errors. */
+const plainTextFieldValue = (textField: TextField, fallback: string): string => {
+  const v = textField?.value;
+  if (v == null) return fallback;
+  if (typeof v === 'string' || typeof v === 'number') return String(v);
+  return fallback;
+};
+
+/** Stable label for links (plain string or logo image). */
 export const getLinkContent = (fields: NavItemFields, logoSrc?: string): JSX.Element | string => {
   const isRootItem = isNavRootItem(fields);
 
@@ -24,7 +33,7 @@ export const getLinkContent = (fields: NavItemFields, logoSrc?: string): JSX.Ele
 
   const textField = fields.NavigationTitle || fields.Title;
   if (textField) {
-    return <Text field={textField} />;
+    return plainTextFieldValue(textField, fields.DisplayName ?? '');
   }
 
   return fields.DisplayName;

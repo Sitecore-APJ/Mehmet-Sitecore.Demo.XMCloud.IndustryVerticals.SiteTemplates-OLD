@@ -1,7 +1,16 @@
+'use client';
+
 import React, { JSX } from 'react';
 import { ComponentProps } from '@/lib/component-props';
-import { Text, Field, RichText, RichTextField } from '@sitecore-content-sdk/nextjs';
+import {
+  Text,
+  Field,
+  RichText,
+  RichTextField,
+} from '@sitecore-content-sdk/nextjs';
 import { useI18n } from 'next-localization';
+import { plainFromTextField, richTextHtml } from '@/helpers/sitecoreHydrationSafe';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 
 export type SubscribeBannerProps = ComponentProps & {
   params: { [key: string]: string };
@@ -12,6 +21,7 @@ export type SubscribeBannerProps = ComponentProps & {
 };
 
 export const Default = (props: SubscribeBannerProps): JSX.Element => {
+  const isEditing = useHydrationSafeEditing();
   const { styles, RenderingIdentifier: id } = props.params;
   const { t } = useI18n();
 
@@ -22,12 +32,14 @@ export const Default = (props: SubscribeBannerProps): JSX.Element => {
     >
       <div className="container max-w-4xl md:max-w-5xl md:px-10">
         <div className="grid items-center gap-y-6 md:grid-cols-2 md:gap-x-12 md:gap-y-0">
-          {/* Headline */}
           <h2 className="text-foreground text-2xl leading-tight font-medium xl:text-3xl">
-            <Text field={props.fields?.Title} />
+            {isEditing ? (
+              <Text field={props.fields?.Title} />
+            ) : (
+              plainFromTextField(props.fields?.Title)
+            )}
           </h2>
 
-          {/* Form */}
           <form className="w-full md:max-w-lg" action="">
             <label htmlFor="subscribe-email" className="sr-only">
               {t('your_email_label') || 'your@email.com'}
@@ -60,17 +72,21 @@ export const Default = (props: SubscribeBannerProps): JSX.Element => {
 };
 
 export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
+  const isEditing = useHydrationSafeEditing();
   const { styles, RenderingIdentifier: id } = props.params;
   const uid = props.rendering.uid;
   const { t } = useI18n();
 
   return (
     <section className={`component subscribe-banner group ${styles ?? ''}`} id={id || undefined}>
-      {/* Headline*/}
       <div className="max-w-sm">
         <div className="mb-6">
           <h2 className="text-foreground text-lg leading-tight font-medium xl:text-xl">
-            <Text field={props.fields?.Title} />
+            {isEditing ? (
+              <Text field={props.fields?.Title} />
+            ) : (
+              plainFromTextField(props.fields?.Title)
+            )}
           </h2>
         </div>
 
@@ -79,7 +95,6 @@ export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
             {t('enter_email') || 'Enter your email'}
           </label>
 
-          {/* Email and Submit Button */}
           <input
             id={`subscribe-email-${uid}`}
             type="email"
@@ -98,7 +113,6 @@ export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
             {t('button_text') || 'Subscribe'}
           </button>
 
-          {/* Consent text and Checkbox  */}
           {props.fields?.ConsentText && (
             <div className="mt-4 flex items-start gap-3">
               <input
@@ -108,7 +122,13 @@ export const WithConsent = (props: SubscribeBannerProps): JSX.Element => {
                 required
               />
               <label htmlFor="subscribe-consent" className="text-foreground/70 text-sm leading-6">
-                <RichText field={props.fields.ConsentText} />
+                {isEditing ? (
+                  <RichText field={props.fields.ConsentText} />
+                ) : (
+                  <span
+                    dangerouslySetInnerHTML={{ __html: richTextHtml(props.fields.ConsentText) }}
+                  />
+                )}
               </label>
             </div>
           )}

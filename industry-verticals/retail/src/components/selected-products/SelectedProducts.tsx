@@ -1,6 +1,10 @@
+'use client';
+
+import { plainFromTextField } from '@/helpers/sitecoreHydrationSafe';
 import React, { JSX } from 'react';
 import { ComponentProps } from '@/lib/component-props';
 import { Text, Field, LinkField, Link } from '@sitecore-content-sdk/nextjs';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { isParamEnabled } from '@/helpers/isParamEnabled';
 import AccentLine from '@/assets/icons/accent-line/AccentLine';
 import ProductCarousel from '../non-sitecore/ProductCarousel';
@@ -19,6 +23,7 @@ interface RelatedProductsProps extends ComponentProps {
 }
 
 export const Default = (props: RelatedProductsProps): JSX.Element => {
+  const isEditing = useHydrationSafeEditing();
   const { styles, RenderingIdentifier: id } = props.params;
   const hideAccentLine = props?.params?.styles?.includes(CommonStyles.HideAccentLine);
   const autoPlay = isParamEnabled(props.params.Autoplay);
@@ -28,7 +33,7 @@ export const Default = (props: RelatedProductsProps): JSX.Element => {
     <section className={`component related-products ${styles}`} id={id || undefined}>
       <div className="container flex flex-col items-center p-8 md:p-10">
         <h2 className="mb-10 inline-block">
-          <Text field={props.fields?.Title} />
+          {isEditing ? <Text field={props.fields?.Title} /> : plainFromTextField(props.fields?.Title)}
           {!hideAccentLine && <AccentLine className="mx-auto !h-4 w-[8ch]" />}
         </h2>
 

@@ -1,25 +1,45 @@
-import { Text, RichText, Field, withDatasourceCheck } from '@sitecore-content-sdk/nextjs';
+'use client';
+
+import {
+  Text,
+  RichText,
+  Field,
+  RichTextField,
+  withDatasourceCheck,
+} from '@sitecore-content-sdk/nextjs';
 import { ComponentProps } from 'lib/component-props';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import { JSX } from 'react';
+import { plainFromTextField, richTextHtml } from '@/helpers/sitecoreHydrationSafe';
 
 type ContentBlockProps = ComponentProps & {
   fields: {
     heading: Field<string>;
-    content: Field<string>;
+    content: RichTextField;
   };
 };
 
-/**
- * A simple Content Block component, with a heading and rich text block.
- * This is the most basic building block of a content site, and the most basic
- * Content SDK component that's useful.
- */
-const ContentBlock = ({ fields }: ContentBlockProps): JSX.Element => (
-  <div className="contentBlock">
-    <Text tag="h2" className="contentTitle" field={fields.heading} />
+const ContentBlock = ({ fields }: ContentBlockProps): JSX.Element => {
+  const isEditing = useHydrationSafeEditing();
 
-    <RichText className="contentDescription" field={fields.content} />
-  </div>
-);
+  return (
+    <div className="contentBlock">
+      {isEditing ? (
+        <Text tag="h2" className="contentTitle" field={fields.heading} />
+      ) : (
+        <h2 className="contentTitle">{plainFromTextField(fields.heading)}</h2>
+      )}
+
+      {isEditing ? (
+        <RichText className="contentDescription" field={fields.content} />
+      ) : (
+        <div
+          className="contentDescription"
+          dangerouslySetInnerHTML={{ __html: richTextHtml(fields.content) }}
+        />
+      )}
+    </div>
+  );
+};
 
 export default withDatasourceCheck()<ContentBlockProps>(ContentBlock);

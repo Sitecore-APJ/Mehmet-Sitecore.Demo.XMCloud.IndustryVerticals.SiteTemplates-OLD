@@ -1,0 +1,63 @@
+﻿---
+ID: "d6e19cae-d769-42b1-a39c-89c69727f337"
+Parent: "cb85c659-2e7e-48b9-ae40-40f73ec3dcb0"
+Template: "f1828a2c-7e5d-4bbd-98ca-320474871548"
+Path: "/sitecore/media library/Project/industry-verticals/forma-lux/Logos/logo-chisholm-black"
+SharedFields:
+- ID: "06d5295c-ed2f-4a54-9bf2-26228d113318"
+  Hint: __Icon
+  Value: "-/media/D6E19CAED76942B1A39C89C69727F337.ashx?h=16&thn=1&w=16"
+- ID: "22eac599-f13b-4607-a89d-c091763a467d"
+  Hint: Width
+  Value: 345
+- ID: "40e50ed9-ba07-4702-992e-a912738d32dc"
+  Hint: Blob
+  BlobID: "22c9a21c-76a6-473a-b6d5-6e33b9e6871d"
+  Value: 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
+- ID: "6954b7c7-2487-423f-8600-436cb3b6dc0e"
+  Hint: Size
+  Value: 2516
+- ID: "6f47a0a5-9c94-4b48-abeb-42d38def6054"
+  Hint: Mime Type
+  Value: image/png
+- ID: "c06867fe-9a43-4c7d-b739-48780492d06f"
+  Hint: Extension
+  Value: png
+- ID: "cb09946f-3218-4823-87d2-d5007c199a96"
+  Hint: Dimensions
+  Value: 345 x 59
+- ID: "dbbbeca1-21c7-4906-9dd2-493c1efa59a2"
+  Hint: __Shared revision
+  Value: "af1ab087-24c2-426c-a19c-d246714b14a7"
+- ID: "de2ca9e4-c117-4c8a-a139-1ff4b199d15a"
+  Hint: Height
+  Value: 59
+Languages:
+- Language: en
+  Versions:
+  - Version: 1
+    Fields:
+    - ID: "25bed78c-4957-4165-998a-ca1b52f67497"
+      Hint: __Created
+      Value: 20260415T112228Z
+    - ID: "52807595-0f8f-4b20-8d2a-cb71d28c6103"
+      Hint: __Owner
+      Value: |
+        sitecore\mehmet.vanli@sitecore.com
+    - ID: "5dd74568-4d4b-44c1-b513-0af5f4cda34f"
+      Hint: __Created by
+      Value: |
+        sitecore\mehmet.vanli@sitecore.com
+    - ID: "65885c44-8fcd-4a7f-94f1-ee63703fe193"
+      Hint: Alt
+      Value: "logo-chisholm-black"
+    - ID: "8cdc337e-a112-42fb-bbb4-4143751e123f"
+      Hint: __Revision
+      Value: "c57107d3-554f-482e-ba50-a29b456a2210"
+    - ID: "badd9cf9-53e0-4d0c-bcc0-2d784c282f6a"
+      Hint: __Updated by
+      Value: |
+        sitecore\mehmet.vanli@sitecore.com
+    - ID: "d9cf14b1-fa16-4ba6-9288-e8a174d4d522"
+      Hint: __Updated
+      Value: 20260415T112229Z

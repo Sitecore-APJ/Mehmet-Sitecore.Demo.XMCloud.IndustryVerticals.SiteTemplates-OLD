@@ -1,12 +1,14 @@
+'use client';
+
 import {
   Field,
   ImageField,
-  NextImage as ContentSdkImage,
   Link as ContentSdkLink,
   LinkField,
   Text,
-  useSitecore,
 } from '@sitecore-content-sdk/nextjs';
+import { plainFromTextField, SitecoreOrNativeImage } from '@/helpers/sitecoreHydrationSafe';
+import { useHydrationSafeEditing } from '@/hooks/useHydrationSafeEditing';
 import React from 'react';
 import { ComponentProps } from 'lib/component-props';
 
@@ -37,27 +39,29 @@ const ImageDefault: React.FC<ImageProps> = ({ params }) => (
 );
 
 export const Default: React.FC<ImageProps> = (props) => {
-  const { page } = useSitecore();
   const { fields, params } = props;
   const { styles, RenderingIdentifier: id } = params;
+  const isEditing = useHydrationSafeEditing();
 
   if (!fields) {
     return <ImageDefault {...props} />;
   }
 
-  const Image = () => <ContentSdkImage field={fields.Image} />;
-  const shouldWrapWithLink = !page.mode.isEditing && fields.TargetUrl?.value?.href;
+  const imageEl = <SitecoreOrNativeImage field={fields.Image} isEditing={isEditing} />;
+  const shouldWrapWithLink = !isEditing && fields.TargetUrl?.value?.href;
 
   return (
     <ImageWrapper className={`component image ${styles}`} id={id}>
       {shouldWrapWithLink ? (
-        <ContentSdkLink field={fields.TargetUrl}>
-          <Image />
-        </ContentSdkLink>
+        <ContentSdkLink field={fields.TargetUrl}>{imageEl}</ContentSdkLink>
       ) : (
-        <Image />
+        imageEl
       )}
-      <Text tag="span" className="image-caption" field={fields.ImageCaption} />
+      {isEditing ? (
+        <Text tag="span" className="image-caption" field={fields.ImageCaption} />
+      ) : (
+        <span className="image-caption">{plainFromTextField(fields.ImageCaption)}</span>
+      )}
     </ImageWrapper>
   );
 };
